@@ -18,7 +18,6 @@
         .flex-item {
             flex: 1 1 calc(33.333% - 20px);
             box-sizing: border-box;
-            border: 1px solid #ddd;
             padding: 10px;
         }
         .flex-item img {
@@ -29,10 +28,13 @@
         }
         .title {
             font-size: 1.2em;
+            font-weight: bold;
             margin-bottom: 5px;
+            text-align: center;
         }
         .caption {
             font-size: 1em;
+            text-align: center;
         }
 
     </style>
@@ -50,6 +52,23 @@
     BGR channels individually, evenly split up the image into thirds, vertically, and then crop 
     all sides of each image to remove any unnecessary borders. After extraction, there are 
     different approaches to laying and aligning these channels on top of each other.
+    
+    <img src="media/cathedral_glass_plate.jpg" alt="glass_plate">
+
+    <div class="flex-container">
+        <div class="flex-item">
+            <div class="title">B Channel</div>
+            <img src="media/b.jpg" alt="b">
+        </div>
+        <div class="flex-item">
+            <div class="title">G Channel</div>
+            <img src="media/g.jpg" alt="g">
+        </div>
+        <div class="flex-item">
+            <div class="title">R Channel</div>
+            <img src="media/r.jpg" alt="r">
+        </div>
+    </div>
 
     <h2>Exhaustive Search</h2>
     
@@ -63,13 +82,13 @@
     <div class="flex-container">
         <div class="flex-item">
             <div class="title">Cathedral</div>
-            <img src="media/cathedral.jpg" alt="Cathedral1">
+            <img src="media/cathedral.jpg" alt="Cathedral">
             <div class="caption">Green (2, 5)</div>
             <div class="caption">Red (3, 12)</div>
         </div>
         <div class="flex-item">
             <div class="title">Monastery</div>
-            <img src="path/media/monastery.jpg" alt="Monastery">
+            <img src="media/monastery.jpg" alt="Monastery">
             <div class="caption">Green (2, -3)</div>
             <div class="caption">Red (2, 3)</div>
         </div>
@@ -98,6 +117,27 @@
     computed displacement value from the previous layer multipled by 2 to account for upscaling. 
     Essentially, I iteratively update the alignment of my BGR channels with every displacement 
     value I discover until I finally reached and aligned the original image.
+
+    <div class="flex-container">
+        <div class="flex-item">
+            <div class="title">Lady</div>
+            <img src="media/lady.tif" alt="Lady">
+            <div class="caption">Green (8, 53)</div>
+            <div class="caption">Red (10, 117)</div>
+        </div>
+        <div class="flex-item">
+            <div class="title">Church</div>
+            <img src="media/church.tif" alt="Church">
+            <div class="caption">Green (0, 25)</div>
+            <div class="caption">Red (-4, 58)</div>
+        </div>
+        <div class="flex-item">
+            <div class="title">Tobolsk</div>
+            <img src="media/tobolsk.jpg" alt="Tobolsk">
+            <div class="caption">Green (3, 3)</div>
+            <div class="caption">Red (3, 6)</div>
+        </div>
+    </div>
 
     This strategy is employed for all tif images, and does a decent job at aligning all of them 
     except for melons.tif, self_portrait.tif, and emir.tif. 
