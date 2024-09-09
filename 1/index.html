@@ -7,27 +7,32 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             margin: 80px;
             font-size: 20px;
-            text-align: center;
         }
 
-        .image-row {
+        .flex-container {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
         }
-        .image-container {
-            margin: 10px;
-            max-width: 30%;
+        .flex-item {
+            flex: 1 1 calc(33.333% - 20px);
             box-sizing: border-box;
+            border: 1px solid #ddd;
+            padding: 10px;
         }
-        .image-container img {
+        .flex-item img {
             width: 100%;
             height: auto;
-            border: 1px solid #ddd;
+            display: block;
+            margin-bottom: 10px;
         }
-        .image-title {
-            margin-bottom: 5px;
+        .title {
             font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        .caption {
+            font-size: 1em;
         }
 
     </style>
@@ -55,18 +60,24 @@
     (NCC) between pixels. Both methods performed decently well so I just used the L2 norm. 
     This allowed me to decently align BGR channels for smaller, jpg images.
 
-    <div class="image-row">
-        <div class="image-container">
-            <div class="image-title">Cathedral</div>
-            <img src="media/cathedral.jpg" alt="Cathedral">
+    <div class="flex-container">
+        <div class="flex-item">
+            <div class="title">Cathedral</div>
+            <img src="media/cathedral.jpg" alt="Cathedral1">
+            <div class="caption">Green (2, 5)</div>
+            <div class="caption">Red (3, 12)</div>
         </div>
-        <div class="image-container">
-            <div class="image-title">Monastery</div>
-            <img src="media/monastery.jpg" alt="Monastery">
+        <div class="flex-item">
+            <div class="title">Monastery</div>
+            <img src="path/media/monastery.jpg" alt="Monastery">
+            <div class="caption">Green (2, -3)</div>
+            <div class="caption">Red (2, 3)</div>
         </div>
-        <div class="image-container">
-            <div class="image-title">Tobolsk</div>
+        <div class="flex-item">
+            <div class="title">Tobolsk</div>
             <img src="media/tobolsk.jpg" alt="Tobolsk">
+            <div class="caption">Green (3, 3)</div>
+            <div class="caption">Red (3, 6)</div>
         </div>
     </div>
 
