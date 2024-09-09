@@ -109,6 +109,8 @@
     layer. Here, I compute the ideal displacement using L2 norm similarly to exhaustive search, 
     again using a displacement window of [-15, 15] pixels.
 
+    <br>
+
     A minor difference though, is that I will take this displacement value and multiply its x 
     and y values by 2^scale, in which scale is the number of times we have downscaled. This 
     essentially scales my displacement value back up such that it is relative to the dimensions 
@@ -117,6 +119,9 @@
     computed displacement value from the previous layer multipled by 2 to account for upscaling. 
     Essentially, I iteratively update the alignment of my BGR channels with every displacement 
     value I discover until I finally reached and aligned the original image.
+    This strategy is employed for all tif images, and does a decent job at aligning all of them. 
+    Those that required extra tweaking I improved by slightly increasing the search area (less crop) 
+    as well as leveraging SSIM for the displacement algorithm instead of L2 norm.
 
     <div class="flex-container">
         <div class="flex-item">
@@ -187,11 +192,6 @@
         </div>
         <div class="flex-item"></div>
      </div>
-
-    This strategy is employed for all tif images, and does a decent job at aligning all of them 
-    except for self_portrait.tif, melons.tif, and emir.tif, which had a few discrepancies in its 
-    alignment. I improved these by slightly increasing the search area (less crop) as well as 
-    leveraging SSIM for the displacement algorithm instead of L2 norm.
     
 </body>
 </html>
