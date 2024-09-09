@@ -13,6 +13,8 @@
 <body>
     <h1>Project 1 (Colorization)<h1>
 
+    <h3>Kelly Yeh (SID: 3037233460)<h3>
+
     <h2>Introduction</h2>
 
     This project aims to color an image from digitized Prokudin-Gorskii glass plate images.
@@ -32,7 +34,7 @@
     This allowed me to decently align BGR channels for smaller, jpg images.
 
     <h3>Cathedral</h3>
-    <img src="/Users/pegas1/Documents/Berkeley_Courses/CS180/kellyyyeh.github.io/1/media/cathedral.jpg" alt="Cathedral">
+    <img src="../media/cathedral.jpg" alt="Cathedral">
 
 
     <h2>Image Pyramid</h2>
@@ -42,7 +44,8 @@
     high resolution image and recursively downscaled it (by a factor of 2) until the image 
     was smaller than 256 pixels either in height or width; this is the coarsest, blurriest 
     layer. Here, I compute the ideal displacement using L2 norm similarly to exhaustive search, 
-    again using a displacement window of [-15, 15] pixels. 
+    again using a displacement window of [-15, 15] pixels.
+
     A minor difference though, is that I will take this displacement value and multiply its x 
     and y values by 2^scale, in which scale is the number of times we have downscaled. This 
     essentially scales my displacement value back up such that it is relative to the dimensions 
