@@ -9,27 +9,6 @@
             font-size: 20px;
         }
 
-        .container {
-            display: flex;
-            align-items: center; /* Center items vertically */
-            justify-content: space-between; /* Space between text and image */
-        }
-        .text {
-            flex: 1; /* Take up remaining space */
-            max-width: 50%; /* Limit the width of the text container */
-            padding: 20px; /* Add padding around text */
-        }
-        .image {
-            flex: 1; /* Take up remaining space */
-            display: flex;
-            justify-content: flex-end; /* Align image to the right */
-        }
-        .image img {
-            max-height: 100vh; /* Ensure the image height does not exceed viewport height */
-            width: auto; /* Maintain aspect ratio */
-            display: block;
-        }
-
         .flex-container {
             display: flex;
             flex-wrap: wrap;
@@ -68,20 +47,13 @@
 
     <h2>Introduction</h2>
 
-    <div class="container">
-        <div class="text">
-            This project aims to color an image from digitized Prokudin-Gorskii glass plate images.
-            This is done through extracting, preprocessing, stacking, and properly aligning the three
-            provided BGR images atop each other such that its pixels line up perfectly. To extract the 
-            BGR channels individually, evenly split up the image into thirds, vertically, and then crop 
-            all sides of each image to remove any unnecessary borders. After extraction, there are 
-            different approaches to laying and aligning these channels on top of each other.        
-        </div>
-        <div class="image">
-            <img src="media/cathedral_glass_plate.jpg" alt="glass_plate">
-        </div>
-    </div>
-
+    This project aims to color an image from digitized Prokudin-Gorskii glass plate images.
+    This is done through extracting, preprocessing, stacking, and properly aligning the three
+    provided BGR images atop each other such that its pixels line up perfectly. To extract the 
+    BGR channels individually, evenly split up the image into thirds, vertically, and then crop 
+    all sides of each image to remove any unnecessary borders. After extraction, there are 
+    different approaches to laying and aligning these channels on top of each other.
+    
     <div class="flex-container">
         <div class="flex-item">
             <div class="title">B Channel</div>
@@ -148,23 +120,53 @@
     <div class="flex-container">
         <div class="flex-item">
             <div class="title">Lady</div>
-            <img src="media/lady.tif" alt="Lady">
+            <img src="media/lady.jpg" alt="Lady">
             <div class="caption">Green (8, 53)</div>
             <div class="caption">Red (10, 117)</div>
         </div>
         <div class="flex-item">
             <div class="title">Church</div>
-            <img src="media/church.tif" alt="Church">
+            <img src="media/church.jpg" alt="Church">
             <div class="caption">Green (0, 25)</div>
             <div class="caption">Red (-4, 58)</div>
         </div>
         <div class="flex-item">
-            <div class="title">Tobolsk</div>
+            <div class="title">Onion Church</div>
             <img src="media/tobolsk.jpg" alt="Tobolsk">
-            <div class="caption">Green (3, 3)</div>
-            <div class="caption">Red (3, 6)</div>
+            <div class="caption">Green (26, 51)</div>
+            <div class="caption">Red (36, 108)</div>
         </div>
-    </div>
+        <div class="flex-item">
+            <div class="title">Harvesters</div>
+            <img src="media/harvesters.jpg" alt="Harvesters">
+            <div class="caption">Green (16, 60)</div>
+            <div class="caption">Red (13, 124)</div>
+        </div>
+        <div class="flex-item">
+            <div class="title">Icon</div>
+            <img src="media/icon.jpg" alt="Icon">
+            <div class="caption">Green (17, 40)</div>
+            <div class="caption">Red (23, 89)</div>
+        </div>
+        <div class="flex-item">
+            <div class="title">Sculpture</div>
+            <img src="media/sculpture.jpg" alt="Sculpture">
+            <div class="caption">Green (11, 33)</div>
+            <div class="caption">Red (-26, 140)</div>
+        </div>    
+        <div class="flex-item">
+            <div class="title">Three Generations</div>
+            <img src="media/three_generations.jpg" alt="Three Generations">
+            <div class="caption">Green (11, 54)</div>
+            <div class="caption">Red (9, 112)</div>
+        </div>
+        <div class="flex-item">
+            <div class="title">Train</div>
+            <img src="media/train.jpg" alt="Train">
+            <div class="caption">Green (5, 43)</div>
+            <div class="caption">Red (31, 87)</div>
+        </div>   
+     </div>
 
     This strategy is employed for all tif images, and does a decent job at aligning all of them 
     except for melons.tif, self_portrait.tif, and emir.tif. 
