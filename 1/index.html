@@ -7,21 +7,27 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             margin: 80px;
             font-size: 20px;
+            text-align: center;
         }
 
-        .text-container {
-            margin-bottom: 20px;
-        }
-
-        .image-container {
+        .image-row {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .image-container {
+            margin: 10px;
+            max-width: 30%;
+            box-sizing: border-box;
         }
         .image-container img {
-            width: 30%;
+            width: 100%;
             height: auto;
             border: 1px solid #ddd;
-            margin: 0 10px;
+        }
+        .image-title {
+            margin-bottom: 5px;
+            font-size: 1.2em;
         }
 
     </style>
@@ -49,19 +55,19 @@
     (NCC) between pixels. Both methods performed decently well so I just used the L2 norm. 
     This allowed me to decently align BGR channels for smaller, jpg images.
 
-    <div class="image-container">
-        <div class="text-container">
-            <h3>Cathedral</h3>
+    <div class="image-row">
+        <div class="image-container">
+            <div class="image-title">Cathedral</div>
+            <img src="media/cathedral.jpg" alt="Cathedral">
         </div>
-        <img src="media/cathedral.jpg" alt="Cathedral">
-        <div class="text-container">
-            <h3>Monastery</h3>
+        <div class="image-container">
+            <div class="image-title">Monastery</div>
+            <img src="media/monastery.jpg" alt="Monastery">
         </div>
-        <img src="media/monastery.jpg" alt="Cathedral">
-        <div class="text-container">
-            <h3>Tobolsk</h3>
+        <div class="image-container">
+            <div class="image-title">Tobolsk</div>
+            <img src="media/tobolsk.jpg" alt="Tobolsk">
         </div>
-        <img src="media/tobolsk.jpg" alt="Cathedral">
     </div>
 
     <h2>Image Pyramid</h2>
@@ -81,6 +87,9 @@
     computed displacement value from the previous layer multipled by 2 to account for upscaling. 
     Essentially, I iteratively update the alignment of my BGR channels with every displacement 
     value I discover until I finally reached and aligned the original image.
+
+    This strategy is employed for all tif images, and does a decent job at aligning all of them 
+    except for melons.tif, self_portrait.tif, and emir.tif. 
     
 </body>
 </html>
