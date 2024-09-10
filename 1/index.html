@@ -121,8 +121,8 @@
     Essentially, I iteratively update the alignment of my BGR channels with every displacement 
     value I discover until I finally reached and aligned the original image.
     This strategy is employed for all tif images, and does a decent job at aligning all of them. 
-    Those that required extra tweaking I improved by slightly increasing the search area (less crop) 
-    as well as leveraging SSIM for the displacement algorithm instead of L2 norm.
+    Those that required extra tweaking I improved by cropping a little more as well as leveraging 
+    SSIM for the displacement algorithm instead of L2 norm.
 
     <div class="flex-container">
         <div class="flex-item">
@@ -183,7 +183,7 @@
             <div class="title">Melons</div>
             <img src="media/melons.jpg" alt="Melons">
             <div class="caption">Green (8, 82)</div>
-            <div class="caption">Red (14, 176)</div>
+            <div class="caption">Red (3, 153)</div>
         </div>    
         <div class="flex-item">
             <div class="title">Emir</div>
