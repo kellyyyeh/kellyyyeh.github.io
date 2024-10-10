@@ -35,12 +35,12 @@ body {font-size:16px;}
   </div>
   <div class="w3-bar-block">
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="#1.1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 1</a> 
-    <a href="#1.2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 2</a> 
-    <a href="#2.1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 3</a> 
-    <a href="#2.2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 4</a> 
-    <a href="#2.3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 5</a>
-    <a href="#2.4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Bells & Whistles</a>
+    <a href="#Part1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 1</a> 
+    <a href="#Part2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 2</a> 
+    <a href="#Part3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 3</a> 
+    <a href="#Part4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 4</a> 
+    <a href="#Part5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 5</a>
+    <a href="#B&W" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Bells & Whistles</a>
   </div>
 </nav>
 
@@ -57,12 +57,12 @@ body {font-size:16px;}
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
   
     <!-- Header -->
-    <div class="w3-container" style="margin-top:80px" id="1.1">
+    <div class="w3-container" style="margin-top:80px" id="Part1">
         <h1 class="w3-jumbo"><b>Project 3: Face Morphing</b></h1>
     </div>
 
     <!-- Part 1 -->
-    <div class="w3-container" id="services" style="margin-top:75px">
+    <div class="w3-container" id="Part2" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1: Defining Correspondences</b></h1>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-row-padding">
@@ -92,7 +92,7 @@ body {font-size:16px;}
     </div>
     
     <!-- Part 2 -->
-    <div class="w3-container" id="services" style="margin-top:75px">
+    <div class="w3-container" id="Part2" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 2: Mid-Way Face</b></h1>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-row-padding">
@@ -136,7 +136,7 @@ body {font-size:16px;}
     </div>
 
     <!-- Part 3 -->
-    <div class="w3-container" id="services" style="margin-top:75px">
+    <div class="w3-container" id="Part3" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 3: Morph Sequence</b></h1>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-row-padding">
@@ -160,7 +160,7 @@ body {font-size:16px;}
     </div>
 
   <!-- Part 4 -->
-  <div class="w3-row-padding">
+  <div class="w3-container" id="Part4" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 4: Mean Face of Population</b></h1>
     <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
     <div class="w3-container"style="margin-top:25px" >
@@ -232,7 +232,7 @@ body {font-size:16px;}
   </div>
 
     <!-- Part 5 -->
-    <div class="w3-row-padding">
+    <div class="w3-container" id="Part5" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 5: Caricatures</b></h1>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-container"style="margin-top:25px" >
@@ -283,7 +283,7 @@ body {font-size:16px;}
     </div>
     
   <!-- Bells & Whistles -->
-  <div class="w3-row-padding">
+  <div class="w3-container" id="B&W" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 4: Mean Face of Population</b></h1>
     <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
     <div class="w3-container"style="margin-top:25px" >
@@ -292,13 +292,11 @@ body {font-size:16px;}
             Rohan Gulati, Victor Zhou, Natalie Wei, and Jennifer Yin). We made sure all our images were 
             500 x 500 pixels and performed the same face morphing. However, we only labeled corresponding 
             points just around the face and not the corners, hence leading to a black background.
+            <br>
             <a href="https://www.youtube.com/shorts/YnXyHEYWaT4" target="_blank">Music Video</a>
-            <iframe width="560" height="315" src="https://www.youtube.com/shorts/YnXyHEYWaT4" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen></iframe>
         </b></p>
     </div>
+    <iframe width="560" height="315" src="https://www.youtube.com/shorts/YnXyHEYWaT4" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <!-- Modal for full size images on click-->
