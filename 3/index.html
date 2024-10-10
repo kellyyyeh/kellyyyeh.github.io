@@ -162,43 +162,146 @@ body {font-size:16px;}
         </div>
     </div>
 
-  <!-- 1.1 -->
+  <!-- Part 4 -->
   <div class="w3-row-padding">
-    <div class="w3-container" id="contact">
-        <div class="w3-third">
-            <img src="./media/daniel_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+    <div class="w3-container"style="margin-top:25px" >
+        <p><b></b>
+            I used the Danes population and found the average face of the entire population. 
+            This was done by using my previously defined morph function and using a warp_frac of 0 
+            and a dissolve_frac of 1 to use the average Danes shape but the colors of each individual. 
+        </b></p>
+        <div class="w3-container" id="contact" style="margin-top:5px">
+            <div class="w3-third">
+                <img src="./media/danes_mean_triangulation_only.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Triangulation</div>
+            </div>
+            <div class="w3-third">
+                <img src="./media/danes_mean_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Triangulation Over Mean Face</div>
+            </div>
+            <div class="w3-third">
+                <img src="./media/danes_mean_face.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Danes Mean Face</div>
+            </div>
         </div>
-        <div class="w3-rest">
-            <div class="w3-container">
-                <p><b></b>
-                    To produce an edge image of "Cameraman.png," we use the finite difference operators Dx = np.array([[1, -1], [0, 0]]) and 
-                    Dy = np.array([[1, 0], [-1, 0]]). By convolving the cameraman image with each of these operators, we can visualize the 
-                    partial derivative of both Dx and Dy. We can combine these to produce a gradient magnitude image and then binarize to get 
-                    our final edge image.
-                </b></p>
-            </div>    
-        </div>      
     </div>
-    <div class="w3-container" id="contact" style="margin-top:75px">
+    <div class="w3-container" id="contact">
+        <p><b></b>
+            Here's a couple of individual examples of people's faces being morphed into the Danes average shape.
+        </b></p>
         <div class="w3-quarter">
-            <img src="./media/edge_image_cameraman_dx.jpg" style="width:100%" onclick="onClick(this)" alt="Dx">
-            <div class="caption">Dx</div>
+            <img src="./media/danes_0.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">01-1m Original</div>
         </div>
         <div class="w3-quarter">
-            <img src="./media/edge_image_cameraman_dy.jpg" style="width:100%" onclick="onClick(this)" alt="Dy">
-            <div class="caption">Dy</div>
+            <img src="./media/danes_morphed0.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">01-1m Warped</div>
         </div>
         <div class="w3-quarter">
-            <img src="./media/edge_image_cameraman_gradient_magnitude.jpg" style="width:100%" onclick="onClick(this)" alt="Gradient Magnitude">
-            <div class="caption">Gradient Magnitude</div>
+            <img src="./media/danes_1.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">01-5m Original</div>
         </div>
         <div class="w3-quarter">
-            <img src="./media/edge_image_cameraman.jpg" style="width:100%" onclick="onClick(this)" alt="Combined Binarized">  
-            <div class="caption">Combined Binarized</div>
+            <img src="./media/danes_morphed1.jpg" style="width:100%" onclick="onClick(this)">  
+            <div class="caption">01-5m Warped</div>
+        </div>    
+    </div>
+    <div class="w3-container" id="contact">
+        <p><b></b>
+            Then, this is what it looks like when I morph my face onto the Dane's average shape, 
+            and Dane's face onto my own face's shape. The output is a little jankier due to the 
+            less consistent nature of my own picture with Dane's as well as a bigger aspect ratio, 
+            hence why Dane's face is being slightly stretched while mine is shrinked.
+        </b></p>
+        <div class="w3-quarter">
+            <img src="./media/kelly.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">Kelly</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/danes_shape_kelly_face.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">My Face Morphed to Danes Shape</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/danes_mean_face.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">Danes</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/danes_face_kelly_shape.jpg" style="width:100%" onclick="onClick(this)">  
+            <div class="caption">Danes Face Morphed to My Shape</div>
         </div>    
     </div>
   </div>
 
+    <!-- Part 5 -->
+    <div class="w3-row-padding">
+        <div class="w3-container"style="margin-top:25px" >
+            <p><b></b>
+                I used the Danes population and found the average face of the entire population. 
+                This was done by using my previously defined morph function and using a warp_frac of 0 
+                and a dissolve_frac of 1 to use the average Danes shape but the colors of each individual. 
+            </b></p>
+            <div class="w3-container" id="contact" style="margin-top:5px">
+                <div class="w3-third">
+                    <img src="./media/danes_mean_triangulation_only.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Triangulation</div>
+                </div>
+                <div class="w3-third">
+                    <img src="./media/danes_mean_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Triangulation Over Mean Face</div>
+                </div>
+                <div class="w3-third">
+                    <img src="./media/danes_mean_face.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Danes Mean Face</div>
+                </div>
+            </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <p><b></b>
+                Here's a couple of individual examples of people's faces being morphed into the Danes average shape.
+            </b></p>
+            <div class="w3-quarter">
+                <img src="./media/danes_0.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">01-1m Original</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/danes_morphed0.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">01-1m Warped</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/danes_1.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">01-5m Original</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/danes_morphed1.jpg" style="width:100%" onclick="onClick(this)">  
+                <div class="caption">01-5m Warped</div>
+            </div>    
+        </div>
+        <div class="w3-container" id="contact">
+            <p><b></b>
+                Then, this is what it looks like when I morph my face onto the Dane's average shape, 
+                and Dane's face onto my own face's shape. The output is a little jankier due to the 
+                less consistent nature of my own picture with Dane's as well as a bigger aspect ratio, 
+                hence why Dane's face is being slightly stretched while mine is shrinked.
+            </b></p>
+            <div class="w3-quarter">
+                <img src="./media/kelly.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Kelly</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/danes_shape_kelly_face.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">My Face Morphed to Danes Shape</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/danes_mean_face.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Danes</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/danes_face_kelly_shape.jpg" style="width:100%" onclick="onClick(this)">  
+                <div class="caption">Danes Face Morphed to My Shape</div>
+            </div>    
+        </div>
+    </div>
+    
   <!-- Modal for full size images on click-->
   <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
     <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
