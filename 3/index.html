@@ -65,28 +65,26 @@ body {font-size:16px;}
     <div class="w3-container" id="Part2" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1: Defining Correspondences</b></h1>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
-        <div class="w3-row-padding">
-            <div class="w3-container">
-                <p><b></b>
-                    I selected 45 points of correspondence for both a picture of my brother and a picture of myself, 
-                    making sure to include the corners. These defined important parts of the face, including the locations 
-                    of the face, eyes, nose, mouth, and eyebrows. Then, I found the average of these points of 
-                    correspondence and use these average points to generate a Delaunay triangulation.
-                </b></p>   
+        <div class="w3-container">
+            <p><b></b>
+                I selected 45 points of correspondence for both a picture of my brother and a picture of myself, 
+                making sure to include the corners. These defined important parts of the face, including the locations 
+                of the face, eyes, nose, mouth, and eyebrows. Then, I found the average of these points of 
+                correspondence and use these average points to generate a Delaunay triangulation.
+            </b></p>   
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-third">
+                <img src="./media/daniel_triangulation.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Daniel Triangulation</div>
             </div>
-            <div class="w3-container" id="contact">
-                <div class="w3-third">
-                    <img src="./media/daniel_triangulation.png" style="width:100%" onclick="onClick(this)">
-                    <div class="caption">Daniel Triangulation</div>
-                </div>
-                <div class="w3-third">
-                    <img src="./media/kelly_daniel_triangulation.png" style="width:100%" onclick="onClick(this)">
-                    <div class="caption">Average Triangulation</div>
-                </div>
-                <div class="w3-third">
-                    <img src="./media/kelly_triangulation.png" style="width:100%" onclick="onClick(this)">
-                    <div class="caption">Kelly Triangulation</div>
-                </div>
+            <div class="w3-third">
+                <img src="./media/kelly_daniel_triangulation.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Average Triangulation</div>
+            </div>
+            <div class="w3-third">
+                <img src="./media/kelly_triangulation.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Kelly Triangulation</div>
             </div>
         </div>
     </div>
