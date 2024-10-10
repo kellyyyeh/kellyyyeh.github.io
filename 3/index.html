@@ -56,6 +56,11 @@ body {font-size:16px;}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
   
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="1.1">
+        <h1 class="w3-jumbo"><b>Project 3: Face Morphing</b></h1>
+    </div>
+
     <!-- Part 1 -->
     <div class="w3-container" id="services" style="margin-top:75px">
         <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1: Defining Correspondences</b></h1>
@@ -63,29 +68,56 @@ body {font-size:16px;}
         <div class="w3-row-padding">
             <div class="w3-container">
                 <p><b></b>
-                    To morph together two images of the same dimensions, I selected 45 points of correspondence 
-                    for both a picture of my brother and a picture of myself, making sure to include the corners. These 
-                    defined important parts of the face, including the locations of the face, eyes, nose, mouth, and eyebrows. 
-                    Then, I found the average of these points of correspondence and use these average points to generate a 
-                    Delaunay triangulation.
+                    I selected 45 points of correspondence for both a picture of my brother and a picture of myself, 
+                    making sure to include the corners. These defined important parts of the face, including the locations 
+                    of the face, eyes, nose, mouth, and eyebrows. Then, I found the average of these points of 
+                    correspondence and use these average points to generate a Delaunay triangulation.
                 </b></p>   
             </div>
             <div class="w3-container" id="contact">
                 <div class="w3-third">
-                    <img src="./media/daniel_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+                    <img src="./media/daniel_triangulation.png" style="width:100%" onclick="onClick(this)">
                     <div class="caption">Daniel Triangulation</div>
                 </div>
                 <div class="w3-third">
-                    <img src="./media/kelly_daniel_triangulation(1).jpg" style="width:100%" onclick="onClick(this)">
+                    <img src="./media/kelly_daniel_triangulation.png" style="width:100%" onclick="onClick(this)">
                     <div class="caption">Average Triangulation</div>
                 </div>
                 <div class="w3-third">
-                    <img src="./media/kelly_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+                    <img src="./media/kelly_triangulation.png" style="width:100%" onclick="onClick(this)">
                     <div class="caption">Kelly Triangulation</div>
                 </div>
             </div>
-            <div class="header"><b></b>
-            </b></div>  
+        </div>
+    </div>
+    
+    <!-- Part 2 -->
+    <div class="w3-container" id="services" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 2: Mid-Way Face</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-row-padding">
+            <div class="w3-container">
+                <p><b></b>
+                    To morph together two images of the same dimensions, I computed the average shape from the average 
+                    Delaunay triangulation from part 1 using a warp_frac to determine what ratio of image1 would be 
+                    incorporated with image2. Then, I had to define an affine transformation that warped both 
+                    faces into this average mold. I iterated over every triangle in my triangulation and founds its affine 
+                    matrix by doing matrix multiplication. I populated the triangle vertices of my original image into a 
+                    matrix that I multiply to an affine matrix with placeholder variable values, and set this equal to a 
+                    matrix of triangle vertices of my average image. I also padded my vertex points with 1s to ensure the 
+                    multiplication dimensions made sense. Once I found my affine matrix, I took the inverse such that I 
+                    could perform inverse warping so that when I multiply this inverse matrix with points from the average 
+                    image, it will essentially map me back to the coordinates of where that point would lie on my original 
+                    image. Using these inverse wrap affine matrices, I was able to warp each image into the average triangulation.
+                </b></p>
+                <p><b></b>
+                    Lastly, I needed to average the colors together. I separated my image into its rgb channels so that I 
+                    could work with them individually. I then populated colors at coordinates in my original image using inverse 
+                    wrapping by iterating over the triangles. I used skimage.draw.polygon to retrieve all the pixels within a 
+                    triangle, and used 2D binary interpolation to interpolate any in-between colors. I also cross-dissolved using 
+                    a dissolve_frac to determine how much of image1's colors would be incorpoated with image2's colors.
+                </b></p> 
+            </div>
             <div class="w3-container" id="contact" style="margin-top:5px">
                 <div class="w3-third">
                     <img src="./media/daniel.jpg" style="width:100%" onclick="onClick(this)">
@@ -101,44 +133,34 @@ body {font-size:16px;}
                 </div>
             </div>
         </div>
-    
+    </div>
+
+    <!-- Part 3 -->
+    <div class="w3-container" id="services" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 3: Morph Sequence</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-row-padding">
-            <div class="w3-container"style="margin-top:25px">
+            <div class="w3-container">
                 <p><b></b>
-                    This technique can be employed with an already sharpened image, too. I first blur my sharp image and then 
-                    sharpen it again, and the results seems to be pretty similar. There is some information that is lost from 
-                    the initial blurring, however, which is why the sharpened image is similar but not quite the same as the original.
+                    I wrote a function morph() which takes in both images and their points, the triangulation, 
+                    as well as a warp_frac and dissolve_frac to determine the ratios of shaping and coloring from 
+                    images 1 and 2. A warp_frac of 1 would mean the shape is completely determined by image 1 and 
+                    0 would mean the shape is completely determined by image 2. A dissolve_frac of 1 would mean 
+                    the color is completely determined by image 1 and 0 would mean the color is completely determined 
+                    by image 2. To create a morph sequence, I created images with the same warp_frac and dissolve_frac 
+                    over a range of [0, 1] to generate 44 frames that morph from Daniel to Kelly.
                 </b></p>   
             </div>
+            <div class="header"><b></b>
+                Original images:
+            </b></div> 
             <div class="w3-container" id="contact">
-                <div class="w3-half">
-                    <img src="./media/house.png" style="width:100%" onclick="onClick(this)" alt="House.png">
-                    <div class="caption">Original</div>
-                </div>
-                <div class="w3-half">
-                    <img src="./media/blurred_house.jpg" style="width:100%" onclick="onClick(this)" alt="Blurred House">
-                    <div class="caption">Blurred Image</div>
-                </div>
-            </div>
-     
-            <div class="w3-container" id="contact">
-                <div class="w3-half">
-                    <img src="./media/resharpened_house.jpg" style="width:100%" onclick="onClick(this)" alt="Resharpened House">
-                    <div class="caption">Sharpened Image</div>
-                </div>
-                <div class="w3-half">
-                    <img src="./media/house_high_frequencies.jpg" style="width:100%" onclick="onClick(this)" alt="High Frequencies">
-                    <div class="caption">High Frequencies</div>
+                <div style="display: flex; justify-content: space-around; align-items: stretch;">
+                    <img src="./media/ezgif.com-animated-gif-maker.gif" style="height: 300px; width: auto; max-width: 100%;">
                 </div>
             </div>
         </div>
-    
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="1.1">
-    <h1 class="w3-jumbo"><b>Project 3: Face Morphing</b></h1>
-    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1: Defining Correspondances</b></h1>
-    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
-  </div>
+    </div>
 
   <!-- 1.1 -->
   <div class="w3-row-padding">
