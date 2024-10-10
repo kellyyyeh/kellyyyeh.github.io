@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;cursor:pointer}
+.w3-half img:hover{opacity:0.8}
+.w3-quarter img{margin-bottom:-6px;margin-top:16px;cursor:pointer}
+.w3-quarter img:hover{opacity:0.8}
+.header {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: 100;
+}.caption {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-blue-gray w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Kelly Yeh<br>(SID: 3037233460)</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="#1.1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 1</a> 
+    <a href="#1.2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 2</a> 
+    <a href="#2.1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 3</a> 
+    <a href="#2.2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 4</a> 
+    <a href="#2.3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 5</a>
+    <a href="#2.4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Bells & Whistles</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-blue-gray w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-blue-gray w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Kelly Yeh (3037233460)</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  
+    <!-- Part 1 -->
+    <div class="w3-container" id="services" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1: Defining Correspondences</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-row-padding">
+            <div class="w3-container">
+                <p><b></b>
+                    To sharpen an image, I used high pass filtering by defining my own unsharp mask filter. This is done by subtracting 
+                    the original image by its blurred version (convolved with 2D Gaussian), which will result in the high frequencies of 
+                    the image. Then, I can multiply this difference by an alpha factor to change the intensity of sharpness--here I used 
+                    alpha = 2. Finally, I can combine these (magnified) high frequencies with the original image to get a sharpened image.
+                </b></p>   
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-third">
+                    <img src="./media/daniel_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Daniel Triangulation</div>
+                </div>
+                <div class="w3-third">
+                    <img src="./media/kelly_daniel_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Average Triangulation</div>
+                </div>
+                <div class="w3-third">
+                    <img src="./media/kelly_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Kelly Triangulation</div>
+                </div>
+            </div>
+            <div class="header"><b></b>
+                Another image:
+            </b></div>  
+            <div class="w3-container" id="contact" style="margin-top:5px">
+                <div class="w3-third">
+                    <img src="./media/daniel.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Daniel</div>
+                </div>
+                <div class="w3-third">
+                    <img src="./media/morphed_kelly_daniel.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Morphed</div>
+                </div>
+                <div class="w3-third">
+                    <img src="./media/kelly.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Kelly</div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="w3-row-padding">
+            <div class="w3-container"style="margin-top:25px">
+                <p><b></b>
+                    This technique can be employed with an already sharpened image, too. I first blur my sharp image and then 
+                    sharpen it again, and the results seems to be pretty similar. There is some information that is lost from 
+                    the initial blurring, however, which is why the sharpened image is similar but not quite the same as the original.
+                </b></p>   
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/house.png" style="width:100%" onclick="onClick(this)" alt="House.png">
+                    <div class="caption">Original</div>
+                </div>
+                <div class="w3-half">
+                    <img src="./media/blurred_house.jpg" style="width:100%" onclick="onClick(this)" alt="Blurred House">
+                    <div class="caption">Blurred Image</div>
+                </div>
+            </div>
+     
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/resharpened_house.jpg" style="width:100%" onclick="onClick(this)" alt="Resharpened House">
+                    <div class="caption">Sharpened Image</div>
+                </div>
+                <div class="w3-half">
+                    <img src="./media/house_high_frequencies.jpg" style="width:100%" onclick="onClick(this)" alt="High Frequencies">
+                    <div class="caption">High Frequencies</div>
+                </div>
+            </div>
+        </div>
+    
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="1.1">
+    <h1 class="w3-jumbo"><b>Project 3: Face Morphing</b></h1>
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1: Defining Correspondances</b></h1>
+    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+  </div>
+
+  <!-- 1.1 -->
+  <div class="w3-row-padding">
+    <div class="w3-container" id="contact">
+        <div class="w3-third">
+            <img src="./media/daniel_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+        </div>
+        <div class="w3-rest">
+            <div class="w3-container">
+                <p><b></b>
+                    To produce an edge image of "Cameraman.png," we use the finite difference operators Dx = np.array([[1, -1], [0, 0]]) and 
+                    Dy = np.array([[1, 0], [-1, 0]]). By convolving the cameraman image with each of these operators, we can visualize the 
+                    partial derivative of both Dx and Dy. We can combine these to produce a gradient magnitude image and then binarize to get 
+                    our final edge image.
+                </b></p>
+            </div>    
+        </div>      
+    </div>
+    <div class="w3-container" id="contact" style="margin-top:75px">
+        <div class="w3-quarter">
+            <img src="./media/edge_image_cameraman_dx.jpg" style="width:100%" onclick="onClick(this)" alt="Dx">
+            <div class="caption">Dx</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/edge_image_cameraman_dy.jpg" style="width:100%" onclick="onClick(this)" alt="Dy">
+            <div class="caption">Dy</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/edge_image_cameraman_gradient_magnitude.jpg" style="width:100%" onclick="onClick(this)" alt="Gradient Magnitude">
+            <div class="caption">Gradient Magnitude</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/edge_image_cameraman.jpg" style="width:100%" onclick="onClick(this)" alt="Combined Binarized">  
+            <div class="caption">Combined Binarized</div>
+        </div>    
+    </div>
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- 1.2 -->
+  <div class="w3-container" id="1.2" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>1.2 Derivative of Gaussian</b></h1>
+    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+    <div class="w3-row-padding">
+        <div class="header"><b></b>
+            Original -> Blurred
+        </b></div>  
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/cameraman.png" style="width:100%" onclick="onClick(this)" alt="Cameraman.png">
+            </div>
+            <div class="w3-half">
+                <img src="./media/cameraman_blurred.jpg" style="width:100%" onclick="onClick(this)" alt="Blurred Cameraman">
+            </div>
+        </div>
+        <div class="w3-container"style="margin-top:25px" >
+            <p><b></b>
+                To better improve our results and minimize noise, we can use a Gaussian filter to blur our image first, then again perform 
+                the same Dx and Dy convolutions on our image to produce a more defined edge image. Compared to the finite difference operator, 
+                our gradients are more defined.
+            </b></p>   
+            <div class="header"><b></b>
+                Blurred Finite Difference: Convolve image with Gaussian -> Convolve with Dx and Dy
+            </b></div>   
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-quarter">
+                <img src="./media/edge_image_gaussian_cameraman_dx.jpg" style="width:100%" onclick="onClick(this)" alt="Dx">
+                <div class="caption">Dx</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/edge_image_gaussian_cameraman_dy.jpg" style="width:100%" onclick="onClick(this)" alt="Dy">
+                <div class="caption">Dy</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/edge_image_gaussian_cameraman_gradient_magnitude(1).jpg" style="width:100%" onclick="onClick(this)" alt="Gradient Magnitude">
+                <div class="caption">Gradient Magnitude</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/edge_image_gaussian_cameraman(1).jpg" style="width:100%" onclick="onClick(this)" alt="Combined Binarized">  
+                <div class="caption">Combined Binarized</div>
+            </div>    
+        </div>
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="w3-container">
+            <p><b></b>
+                Interestingly enough, this produces the same result even if we were to change up the order. If we instead convolve the Gaussian 
+                with each of Dx and Dy first, and then compute the gradient magnitude binarized image, we will have the same result as when we 
+                convolved the Gaussian with the image first and then computed the gradient magnitude binarized image using Dx and Dy.
+            </b></p>
+            <div class="header"><b></b>
+                Derivative of Gaussian: Convolve Dx and Dy with Gaussian -> Convolve image with GDx and GDy
+            </b></div>   
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-quarter">
+                <img src="./media/edge_image_gaussian_cameraman_dx.jpg" style="width:100%" onclick="onClick(this)" alt="Dx">
+                <div class="caption">Dx</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/edge_image_gaussian_cameraman_dy.jpg" style="width:100%" onclick="onClick(this)" alt="Dy">
+                <div class="caption">Dy</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/edge_image_gaussian_cameraman_gradient_magnitude(2).jpg" style="width:100%" onclick="onClick(this)" alt="Gradient Magnitude">
+                <div class="caption">Gradient Magnitude</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/edge_image_gaussian_cameraman(2).jpg" style="width:100%" onclick="onClick(this)" alt="Combined Binarized">  
+                <div class="caption">Combined Binarized</div>
+            </div>    
+        </div>
+      </div>
+    </div>
+    <div class="w3-row-padding">
+        <div class="w3-container">
+            <p><b></b>
+                As you can see below, the two results are essentially identical.
+            </b></p>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/edge_image_gaussian_cameraman(1).jpg" style="width:100%" onclick="onClick(this)" alt="Blurred Finite Operator">  
+                <div class="caption">Blurred Finite Operator</div>
+            </div>
+            <div class="w3-half">
+                <img src="./media/edge_image_gaussian_cameraman(2).jpg" style="width:100%" onclick="onClick(this)" alt="Derivative of Gaussian">  
+                <div class="caption">Derivative of Gaussian</div>
+            </div>
+        </div>
+    </div>
+  
+  <!-- 2.2 -->
+  <div class="w3-container" id="services" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>2.2 Hybrid Images</b></h1>
+    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+    <div class="w3-row-padding">
+        <div class="w3-container">
+            <p><b></b>
+                To produce a hybrid image, both images are first aligned. Then, Derek is blurred using a 
+                Gaussian filter whereas Nutmeg is sharpened using a unsharp mask filter, and the two are 
+                laid on top of each other. For the color image, I processed each channel individually and 
+                combined them correspondingly.
+            </b></p>   
+        </div>
+        <div class="header"><b></b>
+            Original images:
+        </b></div> 
+        <div class="w3-container" id="contact">
+            <div style="display: flex; justify-content: space-around; align-items: stretch;">
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/nutmeg.jpg" style="height: 300px; width: auto; max-width: 100%;" alt="Nutmeg">
+                    <div>Nutmeg</div>
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/DerekPicture.jpg" style="height: 300px; width: auto; max-width: 100%;" alt="Derek">
+                    <div>Derek</div>
+                </div>
+            </div>
+        </div>
+        <div class="header"><b></b>
+            Aligned and hybrid images:
+        </b></div> 
+        <div class="w3-container" id="contact">
+            <div class="w3-quarter">
+                <img src="./media/aligned_gray_derek.jpg" style="width:100%" onclick="onClick(this)" alt="Aligned Derek">
+                <div class="caption">Aligned Derek</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/aligned_gray_nutmeg.jpg" style="width:100%" onclick="onClick(this)" alt="Aligned Nutmeg">
+                <div class="caption">Aligned Nutmeg</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/hybrid_gray_derek_nutmeg.jpg" style="width:100%" onclick="onClick(this)" alt="Hybrid (Gray)">
+                <div class="caption">Hybrid (Gray)</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/hybrid_color_derek_nutmeg.jpg" style="width:100%" onclick="onClick(this)" alt="Hybrid (Color)">
+                <div class="caption">Hybrid (Color)</div>
+            </div>        
+        </div>
+        <div class="header"><b></b>
+            FFTs:
+        </b></div>
+        <div class="w3-row-padding">
+            <div class="w3-container">
+                <p><b></b>
+                    These are the FFTs of the images. After Derek is blurred with a Gaussian filter, this results in 
+                    the blocky pattern as seen in the FFT as well as higher alignment along the vertical and horizontal 
+                    lines, indicating lower frequencies. Sharpening nutmeg increases the proportion of higher frequencies, 
+                    hence causing a larger blur/range of lighter values. Therefore, the hybrid is brighter/higher frequency 
+                    than the blurred image but darker/lower frequency than the sharpened image.
+                </b></p>   
+            </div>
+            <div class="w3-container" id="contact">
+                <div style="display: flex; justify-content: space-around; align-items: stretch;">
+                    <div style="flex: 1; text-align: center; padding: 10px;">
+                        <img src="./media/derek_fft.jpg" style="width:100%" onclick="onClick(this)" alt="Derek.png">
+                        <div>Derek</div>
+                    </div>
+                    <div style="flex: 1; text-align: center; padding: 10px;">
+                        <img src="./media/nutmeg_fft.jpg" style="width:100%" onclick="onClick(this)" alt="Nutmeg">
+                        <div>Nutmeg</div>
+                    </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                        <img src="./media/blurred_derek_fft.jpg" style="width:100%" onclick="onClick(this)" alt="Blurred Derek">
+                        <div class="caption">Blurred Derek</div>
+                    </div>
+                    <div style="flex: 1; text-align: center; padding: 10px;">
+                        <img src="./media/sharpened_nutmeg_fft.jpg" style="width:100%" onclick="onClick(this)" alt="Sharpened Nutmeg">
+                        <div class="caption">Sharpened Nutmeg</div>
+                    </div>
+                    <div style="flex: 1; text-align: center; padding: 10px;">
+                        <img src="./media/hybrid_fft.jpg" style="width:100%" onclick="onClick(this)" alt="Hybrid">
+                        <div class="caption">Hybrid</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header"><b></b>
+            More images:
+        </b></div>     
+        <div class="w3-container" id="contact">
+            <div class="w3-quarter">
+                <img src="./media/pomeranian.jpg" style="width:100%" onclick="onClick(this)" alt="Pomeranian">
+                <div class="caption">Pomeranian</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/coconut.jpg" style="width:100%" onclick="onClick(this)" alt="Coconut">
+                <div class="caption">Coconut</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/hybrid_gray_coconut_pomeranian.jpg" style="width:100%" onclick="onClick(this)" alt="Hybrid (Gray)">
+                <div class="caption">Hybrid (Gray)</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/hybrid_color_coconut_pomeranian.jpg" style="width:100%" onclick="onClick(this)" alt="Hybrid (Color)">
+                <div class="caption">Hybrid (Color)</div>
+            </div>        
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-quarter">
+                <img src="./media/croissant.jpg" style="width:100%" onclick="onClick(this)" alt="Croissant">
+                <div class="caption">Croissant</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/sloth.jpg" style="width:100%" onclick="onClick(this)" alt="Sloth">
+                <div class="caption">Sloth</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/hybrid_gray_croissant_sloth.jpg" style="width:100%" onclick="onClick(this)" alt="Hybrid (Gray)">
+                <div class="caption">Hybrid (Gray)</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/hybrid_color_croissant_sloth.jpg" style="width:100%" onclick="onClick(this)" alt="Hybrid (Color)">
+                <div class="caption">Hybrid (Color)</div>
+            </div>        
+        </div>
+    </div>
+  
+  <!-- 2.3 -->
+  <div class="w3-container" id="services" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>2.3 Gaussian and Laplacian Stacks</b></h1>
+    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+    <div class="w3-row-padding">
+        <div class="w3-container" id="contact">
+            <div class="header"><b></b>
+                Gaussian stack:
+            </b></div>     
+            <div style="display: flex; justify-content: space-around; align-items: stretch;">
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/apple.jpeg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/gaussian_apple0.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/gaussian_apple1.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/gaussian_apple2.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/gaussian_apple3.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <div style="display: flex; justify-content: space-around; align-items: stretch;">
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/orange.jpeg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/gaussian_orange0.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/gaussian_orange1.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/gaussian_orange2.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/gaussian_orange3.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+        </div>
+        <div class="header"><b></b>
+            Laplacian stack:
+        </b></div>     
+        <div style="display: flex; justify-content: space-around; align-items: stretch;">
+            <div style="flex: 1; text-align: center; padding: 10px;">
+                <img src="./media/laplacian_apple0.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div style="flex: 1; text-align: center; padding: 10px;">
+                <img src="./media/laplacian_apple1.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div style="flex: 1; text-align: center; padding: 10px;">
+                <img src="./media/laplacian_apple2.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div style="flex: 1; text-align: center; padding: 10px;">
+                <img src="./media/laplacian_apple3.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div style="flex: 1; text-align: center; padding: 10px;">
+                <img src="./media/laplacian_apple4.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-around; align-items: stretch;">
+            <div style="flex: 1; text-align: center; padding: 10px;">
+                <img src="./media/laplacian_orange0.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div style="flex: 1; text-align: center; padding: 10px;">
+                <img src="./media/laplacian_orange1.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div style="flex: 1; text-align: center; padding: 10px;">
+                <img src="./media/laplacian_orange2.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div style="flex: 1; text-align: center; padding: 10px;">
+                <img src="./media/laplacian_orange3.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div style="flex: 1; text-align: center; padding: 10px;">
+                <img src="./media/laplacian_orange4.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+
+  <!-- 2.4 -->
+  <div class="w3-container" id="services" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>2.4 Multiresolution Blending</b></h1>
+    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+    <div class="w3-row-padding">
+        <div class="header"><b></b>
+            Oraple:
+        </b></div>     
+        <div class="w3-container" id="contact">
+            <div style="display: flex; justify-content: space-around; align-items: stretch;">
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/apple.jpeg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/orange.jpeg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/mask.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/oraple.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+        </div>
+        <div class="header"><b></b>
+            Caulidog:
+        </b></div>     
+
+        <div class="w3-container" id="contact">
+            <div style="display: flex; justify-content: space-around; align-items: stretch;">
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/cauliflower.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/white_dog.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/mask.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/caulidog.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+        </div>
+
+        <div class="header"><b></b>
+            Irregular mask:
+        </b></div>     
+
+        <div class="w3-container" id="contact">
+            <div style="display: flex; justify-content: space-around; align-items: stretch;">
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/oraple0.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/oraple1.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/oraple2.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/oraple3.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/oraple4.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <div style="display: flex; justify-content: space-around; align-items: stretch;">
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/pikachu.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/lemon.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/irregular_mask.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div style="flex: 1; text-align: center; padding: 10px;">
+                    <img src="./media/pikalemon.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+        </div>
+
+
+<!-- End page content -->
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Website Template: <a href="https://www.w3schools.com/w3css/tryw3css_templates_interior_design.htm#services" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>
