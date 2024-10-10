@@ -63,10 +63,11 @@ body {font-size:16px;}
         <div class="w3-row-padding">
             <div class="w3-container">
                 <p><b></b>
-                    To sharpen an image, I used high pass filtering by defining my own unsharp mask filter. This is done by subtracting 
-                    the original image by its blurred version (convolved with 2D Gaussian), which will result in the high frequencies of 
-                    the image. Then, I can multiply this difference by an alpha factor to change the intensity of sharpness--here I used 
-                    alpha = 2. Finally, I can combine these (magnified) high frequencies with the original image to get a sharpened image.
+                    To morph together two images of the same dimensions, I selected 45 points of correspondence 
+                    for both a picture of my brother and a picture of myself, making sure to include the corners. These 
+                    defined important parts of the face, including the locations of the face, eyes, nose, mouth, and eyebrows. 
+                    Then, I found the average of these points of correspondence and use these average points to generate a 
+                    Delaunay triangulation.
                 </b></p>   
             </div>
             <div class="w3-container" id="contact">
@@ -75,7 +76,7 @@ body {font-size:16px;}
                     <div class="caption">Daniel Triangulation</div>
                 </div>
                 <div class="w3-third">
-                    <img src="./media/kelly_daniel_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+                    <img src="./media/kelly_daniel_triangulation(1).jpg" style="width:100%" onclick="onClick(this)">
                     <div class="caption">Average Triangulation</div>
                 </div>
                 <div class="w3-third">
@@ -84,7 +85,6 @@ body {font-size:16px;}
                 </div>
             </div>
             <div class="header"><b></b>
-                Another image:
             </b></div>  
             <div class="w3-container" id="contact" style="margin-top:5px">
                 <div class="w3-third">
