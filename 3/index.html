@@ -151,9 +151,6 @@ body {font-size:16px;}
                     over a range of [0, 1] to generate 44 frames that morph from Daniel to Kelly.
                 </b></p>   
             </div>
-            <div class="header"><b></b>
-                Original images:
-            </b></div> 
             <div class="w3-container" id="contact">
                 <div style="display: flex; justify-content: space-around; align-items: stretch;">
                     <img src="./media/ezgif.com-animated-gif-maker.gif" style="height: 300px; width: auto; max-width: 100%;">
@@ -164,6 +161,8 @@ body {font-size:16px;}
 
   <!-- Part 4 -->
   <div class="w3-row-padding">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 4: Mean Face of Population</b></h1>
+    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
     <div class="w3-container"style="margin-top:25px" >
         <p><b></b>
             I used the Danes population and found the average face of the entire population. 
@@ -234,70 +233,51 @@ body {font-size:16px;}
 
     <!-- Part 5 -->
     <div class="w3-row-padding">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 5: Caricatures</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-container"style="margin-top:25px" >
             <p><b></b>
-                I used the Danes population and found the average face of the entire population. 
-                This was done by using my previously defined morph function and using a warp_frac of 0 
-                and a dissolve_frac of 1 to use the average Danes shape but the colors of each individual. 
+                To produce caricatures, I extrapolated from the population mean by modifying my own defined 
+                alpha value. This value is multiplied by the shape differences between the average face with 
+                my face, and then added to my own face geometry. Hence, the greater the magnitude of alpha and  
+                as it strays further away from 0 (which would be my original face), the greater these 
+                differences are and the more exaggerated the feature became.
             </b></p>
-            <div class="w3-container" id="contact" style="margin-top:5px">
-                <div class="w3-third">
-                    <img src="./media/danes_mean_triangulation_only.jpg" style="width:100%" onclick="onClick(this)">
-                    <div class="caption">Triangulation</div>
-                </div>
-                <div class="w3-third">
-                    <img src="./media/danes_mean_triangulation.jpg" style="width:100%" onclick="onClick(this)">
-                    <div class="caption">Triangulation Over Mean Face</div>
-                </div>
-                <div class="w3-third">
-                    <img src="./media/danes_mean_face.jpg" style="width:100%" onclick="onClick(this)">
-                    <div class="caption">Danes Mean Face</div>
-                </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-quarter">
+                <img src="./media/alpha-0.5.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Alpha = -0.5</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/alpha-0.25.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Alpha = -0.25</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/alpha0.0.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Alpha = 0 (Original)</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/alpha0.25.jpg" style="width:100%" onclick="onClick(this)">  
+                <div class="caption">Alpha = 0.25</div>
             </div>
         </div>
         <div class="w3-container" id="contact">
-            <p><b></b>
-                Here's a couple of individual examples of people's faces being morphed into the Danes average shape.
-            </b></p>
             <div class="w3-quarter">
-                <img src="./media/danes_0.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">01-1m Original</div>
+                <img src="./media/alpha0.5.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Alpha = 0.5</div>
             </div>
             <div class="w3-quarter">
-                <img src="./media/danes_morphed0.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">01-1m Warped</div>
+                <img src="./media/alpha0.75.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Alpha = 0.75</div>
             </div>
             <div class="w3-quarter">
-                <img src="./media/danes_1.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">01-5m Original</div>
+                <img src="./media/alpha1.0.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Alpha = 1</div>
             </div>
             <div class="w3-quarter">
-                <img src="./media/danes_morphed1.jpg" style="width:100%" onclick="onClick(this)">  
-                <div class="caption">01-5m Warped</div>
-            </div>    
-        </div>
-        <div class="w3-container" id="contact">
-            <p><b></b>
-                Then, this is what it looks like when I morph my face onto the Dane's average shape, 
-                and Dane's face onto my own face's shape. The output is a little jankier due to the 
-                less consistent nature of my own picture with Dane's as well as a bigger aspect ratio, 
-                hence why Dane's face is being slightly stretched while mine is shrinked.
-            </b></p>
-            <div class="w3-quarter">
-                <img src="./media/kelly.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">Kelly</div>
-            </div>
-            <div class="w3-quarter">
-                <img src="./media/danes_shape_kelly_face.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">My Face Morphed to Danes Shape</div>
-            </div>
-            <div class="w3-quarter">
-                <img src="./media/danes_mean_face.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">Danes</div>
-            </div>
-            <div class="w3-quarter">
-                <img src="./media/danes_face_kelly_shape.jpg" style="width:100%" onclick="onClick(this)">  
-                <div class="caption">Danes Face Morphed to My Shape</div>
+                <img src="./media/alpha1.25.jpg" style="width:100%" onclick="onClick(this)">  
+                <div class="caption">Alpha = 1.25</div>
             </div>    
         </div>
     </div>
