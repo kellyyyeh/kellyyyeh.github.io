@@ -58,8 +58,10 @@ body {font-size:16px;}
   
     <!-- Header -->
     <div class="w3-container" style="margin-top:80px" id="Part1">
-        <h1 class="w3-jumbo"><b>Project 3: Image Warping and Mosaicing</b></h1>
+        <h1 class="w3-jumbo"><b>Project 4: Image Warping and Mosaicing</b></h1>
     </div>
+
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 4A</b></h1>
 
     <!-- Part 1 -->
     <div class="w3-container" id="Part2" style="margin-top:75px">
@@ -69,7 +71,8 @@ body {font-size:16px;}
             <p><b></b>
                 These are the pictures I took of Brown's by the College of Natural Resources. I made 
                 sure to adjust only the angle at which the camera was facing and kept the position of 
-                my camera the same as I shot, to ensure that I maintained the same center of projection.
+                my camera the same as I shot, to ensure that I maintained the same center of projection. 
+                I tried to aim for an approximate 40-70% overlap and ensure minimal moving objects.
             </b></p>   
         </div>
         <div class="w3-container" id="contact">
@@ -89,18 +92,7 @@ body {font-size:16px;}
         <div class="w3-row-padding">
             <div class="w3-container">
                 <p><b></b>
-                    TO DOOOOOO
-                    To morph together two images of the same dimensions, I computed the average shape from the average 
-                    Delaunay triangulation from part 1 using a warp_frac to determine what ratio of image1 would be 
-                    incorporated with image2. Then, I had to define an affine transformation that warped both 
-                    faces into this average mold. I iterated over every triangle in my triangulation and founds its affine 
-                    matrix by doing matrix multiplication. I populated the triangle vertices of my original image into a 
-                    matrix that I multiply to an affine matrix with placeholder variable values, and set this equal to a 
-                    matrix of triangle vertices of my average image. I also padded my vertex points with 1s to ensure the 
-                    multiplication dimensions made sense. Once I found my affine matrix, I took the inverse such that I 
-                    could perform inverse warping so that when I multiply this inverse matrix with points from the average 
-                    image, it will essentially map me back to the coordinates of where that point would lie on my original 
-                    image. Using these inverse wrap affine matrices, I was able to warp each image into the average triangulation.
+                    Next, I needed to compute homographies by writing a computeH function. 
                 </b></p>
                 <p><b></b>
                     Lastly, I needed to average the colors together. I separated my image into its rgb channels so that I 
