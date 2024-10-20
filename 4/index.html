@@ -128,8 +128,42 @@ body {font-size:16px;}
                     w
                     \end{bmatrix} $$
                 </div>
+
                 <p><b></b>
-                    $$ H = \begin{bmatrix}
+                    Which I then simplified to the general form:
+                    $$ \begin{bmatrix}
+                    px & py & 1 & 0 & 0 & 0 & -px \cdot qx & -py \cdot qx \\
+                    0 & 0 & 0 & px & py & 1 & -px \cdot qy & -py \cdot qy
+                    \end{bmatrix} 
+                    \cdot 
+                    \begin{bmatrix}
+                    a \\
+                    b \\
+                    c \\
+                    d \\
+                    e \\
+                    f \\
+                    g \\
+                    h
+                    \end{bmatrix} 
+                    = 
+                    \begin{bmatrix}
+                    qx \\
+                    qy
+                    \end{bmatrix} $$
+                </b></p>
+
+                <p><b></b>
+                    After reorganizing the above equation and isolating the a through h variables 
+                    into a single vector into the form \( A = xB \), I can perform a basic matrix 
+                    multiplication to solve for my 8 unknowns. To do this, I created the left and right 
+                    matrices A and B and extended it for every point in the left image (px, py) and its 
+                    corresponding point (qx, qy) in the right image. This creates an overdetermined system 
+                    which I solved for by leveraging the least squares formula
+                    \( x = (A^T A)^{-1} A^T B \),
+                    which ultimately allowed me to retrieve my 8 unknowns.
+
+                    $$ \begin{bmatrix}
                     px & py & 1 & 0 & 0 & 0 & -px \cdot qx & -py \cdot qx \\
                     0 & 0 & 0 & px & py & 1 & -px \cdot qy & -py \cdot qy
                     \end{bmatrix} 
@@ -150,7 +184,6 @@ body {font-size:16px;}
                     qy
                     \end{bmatrix} $$
 
-                    I created two matrices: A and B. A consists of 
                     \[
                     \begin{bmatrix}
                     px & py & 1 & 0 & 0 & 0 & -px \cdot qx & -py \cdot qx \\
@@ -206,10 +239,6 @@ body {font-size:16px;}
                     \end{bmatrix}
                     \]
             
-                    For every point in the left image (px, py) and its corresponding point (qx, qy) in the right image, 
-                    I extended matrices A and B by the above values, creating an overdetermined system. To solve for this 
-                    system, I leveraged the least squares formula to solve for my 8 unknowns:
-                    \( x = (A^T A)^{-1} A^T B \)
                 </b></p> 
             </div>
         </div>
@@ -222,13 +251,8 @@ body {font-size:16px;}
         <div class="w3-row-padding">
             <div class="w3-container">
                 <p><b></b>
-                    I wrote a function morph() which takes in both images and their points, the triangulation, 
-                    as well as a warp_frac and dissolve_frac to determine the ratios of shaping and coloring from 
-                    images 1 and 2. A warp_frac of 1 would mean the shape is completely determined by image 1 and 
-                    0 would mean the shape is completely determined by image 2. A dissolve_frac of 1 would mean 
-                    the color is completely determined by image 1 and 0 would mean the color is completely determined 
-                    by image 2. To create a morph sequence, I created images with the same warp_frac and dissolve_frac 
-                    over a range of [0, 1] to generate 44 frames that morph from Daniel to Kelly.
+                    For image warping, I defined a function warpImage(im, H) that applies the 
+                    homography H created from computeH and applies it to image im. 
                 </b></p>   
             </div>
             <div class="w3-container" id="contact">
