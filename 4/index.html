@@ -23,6 +23,17 @@ body {font-size:16px;}
     font-size: 16px;
     margin-top: 15px;
 }
+.equation {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+.matrix {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -92,8 +103,31 @@ body {font-size:16px;}
         <div class="w3-row-padding">
             <div class="w3-container">
                 <p><b></b>
-                    Next, I needed to compute homographies by writing a computeH function. 
+                    Next, I needed to compute homographies by writing a computeH function. This transformation 
+                    follows the format p' = Hp, where H is a 3x3 matrix with 8 degrees of freedom, which we are looking 
+                    for. To do this, I working through the following computation:
                 </b></p>
+                <div class="equation">
+                    H = 
+                    <div class="matrix">
+                        <div>[a, b, c]</div>
+                        <div>[d, e, f]</div>
+                        <div>[g, h, 1]</div>
+                    </div>
+                    * 
+                    <div class="matrix">
+                        <div>[x]</div>
+                        <div>[y]</div>
+                        <div>[1]</div>
+                    </div>
+                    = 
+                    <div class="matrix">
+                        <div>[wx']</div>
+                        <div>[wy']</div>
+                        <div>[w]</div>
+                    </div>
+                </div>
+            
                 <p><b></b>
                     Lastly, I needed to average the colors together. I separated my image into its rgb channels so that I 
                     could work with them individually. I then populated colors at coordinates in my original image using inverse 
@@ -269,15 +303,15 @@ body {font-size:16px;}
         </div>
         <div class="w3-container" id="contact" style="margin-top:5px">
             <div class="w3-third" style="margin-right: 5px;">
-                <img src="./media/cnr_mask1.jpg" style="width:100%" onclick="onClick(this)">
+                <img src="./media/cnr_mask1.jpg" style="width:90" onclick="onClick(this)">
                 <div class="caption">CNR Left Bitmask</div>
             </div>
             <div class="w3-third" style="margin-right: 5px;">
-                <img src="./media/overlap_mask.jpg" style="width:100%" onclick="onClick(this)">
+                <img src="./media/overlap_mask.jpg" style="width:90%" onclick="onClick(this)">
                 <div class="caption">Overlap Bitmask</div>
             </div>
             <div class="w3-third">
-                <img src="./media/cnr_mask2.jpg" style="width:100%" onclick="onClick(this)">
+                <img src="./media/cnr_mask2.jpg" style="width:90%" onclick="onClick(this)">
                 <div class="caption">CNR Right Bitmask</div>
             </div>
         </div>
