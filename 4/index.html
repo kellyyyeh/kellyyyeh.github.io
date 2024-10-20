@@ -162,83 +162,6 @@ body {font-size:16px;}
                     which I solved for by leveraging the least squares formula
                     \( x = (A^T A)^{-1} A^T B \),
                     which ultimately allowed me to retrieve my 8 unknowns.
-
-                    $$ \begin{bmatrix}
-                    px & py & 1 & 0 & 0 & 0 & -px \cdot qx & -py \cdot qx \\
-                    0 & 0 & 0 & px & py & 1 & -px \cdot qy & -py \cdot qy
-                    \end{bmatrix} 
-                    \cdot 
-                    \begin{bmatrix}
-                    a \\
-                    b \\
-                    c \\
-                    d \\
-                    e \\
-                    f \\
-                    g \\
-                    h
-                    \end{bmatrix} 
-                    = 
-                    \begin{bmatrix}
-                    qx \\
-                    qy
-                    \end{bmatrix} $$
-
-                    \[
-                    \begin{bmatrix}
-                    px & py & 1 & 0 & 0 & 0 & -px \cdot qx & -py \cdot qx \\
-                    0 & 0 & 0 & px & py & 1 & -px \cdot qy & -py \cdot qy
-                    \end{bmatrix}
-                    \]
-                    and B consists of 
-                    \[
-                    \begin{bmatrix}
-                    qx \\
-                    qy
-                    \end{bmatrix}
-                    \]
-
-                    I also defined x to be 
-                    \[
-                    \begin{bmatrix}
-                    a \\
-                    b \\
-                    c \\
-                    d \\
-                    e \\
-                    f \\
-                    g \\
-                    h
-                    \end{bmatrix}
-                    \]
-            
-                    \[
-                    \begin{bmatrix}
-                    px & py & 1 & 0 & 0 & 0 & -px \cdot qx & -py \cdot qx \\
-                    0 & 0 & 0 & px & py & 1 & -px \cdot qy & -py \cdot qy
-                    \end{bmatrix}
-                    \]
-                    by the vector:
-                    \[
-                    \begin{bmatrix}
-                    a \\
-                    b \\
-                    c \\
-                    d \\
-                    e \\
-                    f \\
-                    g \\
-                    h
-                    \end{bmatrix}
-                    \]
-                    to get the result:
-                    \[
-                    \begin{bmatrix}
-                    qx \\
-                    qy
-                    \end{bmatrix}
-                    \]
-            
                 </b></p> 
             </div>
         </div>
@@ -252,8 +175,23 @@ body {font-size:16px;}
             <div class="w3-container">
                 <p><b></b>
                     For image warping, I defined a function warpImage(im, H) that applies the 
-                    homography H created from computeH and applies it to image im. 
+                    homography H created from computeH and applies it to image im. My goal is to 
+                    transform my first image im such that it aligns with my reference image.
                 </b></p>   
+                <p><b></b>
+                    First, I did this by finding the corner points of my image, transforming them, 
+                    and also shifting them such that they are in the positive coordinate space. 
+                    Then, after performing the same shift to my reference image, I can compute my 
+                    homography matrix H which will map my first image to my reference image such that 
+                    its correspondence points line up perfectly.
+                </b></p>   
+                <p><b></b>
+                    From there, I create a new, blank image of a polygon shape using sk.draw.polygon 
+                    with my shifted corner points, 
+                    I then inverse warped these polygon pixels to the original first image's positions, 
+                    and then copied these pixels over to my new image by working with each rgb channel 
+                    individually.
+                </b></p>
             </div>
             <div class="w3-container" id="contact">
                 <div class="w3-half">
