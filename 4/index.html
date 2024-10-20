@@ -74,7 +74,10 @@ body {font-size:16px;}
         <h1 class="w3-jumbo"><b>Project 4: Image Warping and Mosaicing</b></h1>
     </div>
 
-    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 4A</b></h1>
+    <div class="w3-container">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 4A</b></h1>
+    </div>
+
 
     <!-- Part 1 -->
     <div class="w3-container" id="Part2" style="margin-top:75px">
@@ -218,9 +221,13 @@ body {font-size:16px;}
     <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
     <div class="w3-container"style="margin-top:25px" >
         <p><b></b>
-            I used the Danes population and found the average face of the entire population. 
-            This was done by using my previously defined morph function and using a warp_frac of 0 
-            and a dissolve_frac of 1 to use the average Danes shape but the colors of each individual. 
+            For image rectification, I am confirming the accuracy of my homography computation by 
+            taking a square or rectangular surface taken at an angle, transforming using homography, 
+            and then producing a warped image such that it is rectangular and looks "flat" from the 
+            viewer's point of view. I used corner correspondence points of the object as well as 
+            hardcoded corner points [[0, 1], [1, 1], [1, 0], [0, 0]] that are scaled to the image. 
+            Provided is an example of my angled square image which I made rectangular using a homographic 
+            transformation.
         </b></p>
         <div class="w3-container" id="contact">
             <div class="w3-half">
@@ -230,65 +237,6 @@ body {font-size:16px;}
                 <img src="./media/warped_score.jpg" style="width:100%" onclick="onClick(this)">
             </div>
         </div>
-        <div class="w3-container" id="contact" style="margin-top:5px">
-            <div class="w3-third">
-                <img src="./media/danes_mean_triangulation_only.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">Triangulation</div>
-            </div>
-            <div class="w3-third">
-                <img src="./media/danes_mean_triangulation.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">Triangulation Over Mean Face</div>
-            </div>
-            <div class="w3-third">
-                <img src="./media/danes_mean_face.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">Danes Mean Face</div>
-            </div>
-        </div>
-    </div>
-    <div class="w3-container" id="contact">
-        <p><b></b>
-            Here's a couple of individual examples of people's faces being morphed into the Danes average shape.
-        </b></p>
-        <div class="w3-quarter">
-            <img src="./media/danes_0.jpg" style="width:100%" onclick="onClick(this)">
-            <div class="caption">01-1m Original</div>
-        </div>
-        <div class="w3-quarter">
-            <img src="./media/danes_morphed0.jpg" style="width:100%" onclick="onClick(this)">
-            <div class="caption">01-1m Warped</div>
-        </div>
-        <div class="w3-quarter">
-            <img src="./media/danes_1.jpg" style="width:100%" onclick="onClick(this)">
-            <div class="caption">01-5m Original</div>
-        </div>
-        <div class="w3-quarter">
-            <img src="./media/danes_morphed1.jpg" style="width:100%" onclick="onClick(this)">  
-            <div class="caption">01-5m Warped</div>
-        </div>    
-    </div>
-    <div class="w3-container" id="contact">
-        <p><b></b>
-            Then, this is what it looks like when I morph my face onto the Dane's average shape, 
-            and Dane's face onto my own face's shape. The output is a little jankier due to the 
-            less consistent nature of my own picture with Dane's as well as a bigger aspect ratio, 
-            hence why Dane's face is being slightly stretched while mine is shrinked.
-        </b></p>
-        <div class="w3-quarter">
-            <img src="./media/kelly_horizontal_cropped.jpg" style="width:100%" onclick="onClick(this)">
-            <div class="caption">Kelly</div>
-        </div>
-        <div class="w3-quarter">
-            <img src="./media/danes_shape_kelly_face.jpg" style="width:100%" onclick="onClick(this)">
-            <div class="caption">My Face Morphed to Danes Shape</div>
-        </div>
-        <div class="w3-quarter">
-            <img src="./media/danes_mean_face.jpg" style="width:100%" onclick="onClick(this)">
-            <div class="caption">Danes</div>
-        </div>
-        <div class="w3-quarter">
-            <img src="./media/danes_face_kelly_shape.jpg" style="width:100%" onclick="onClick(this)">  
-            <div class="caption">Danes Face Morphed to My Shape</div>
-        </div>    
     </div>
   </div>
 
