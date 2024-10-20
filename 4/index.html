@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;cursor:pointer}
+.w3-half img:hover{opacity:0.8}
+.w3-quarter img{margin-bottom:-6px;margin-top:16px;cursor:pointer}
+.w3-quarter img:hover{opacity:0.8}
+.header {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: 100;
+}.caption {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-blue-gray w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Kelly Yeh<br>(SID: 3037233460)</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="#Part1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Shoot the Pictures</a> 
+    <a href="#Part2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Recover Homographies</a> 
+    <a href="#Part3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Warp the Images</a> 
+    <a href="#Part4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Image Rectification</a> 
+    <a href="#Part5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Blend the images into a mosaic</a>
+    <a href="#B&W" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Bells & Whistles</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<!-- <header class="w3-container w3-top w3-hide-large w3-blue-gray w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-blue-gray w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Kelly Yeh (3037233460)</span>
+</header> -->
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<!-- <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div> -->
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="Part1">
+        <h1 class="w3-jumbo"><b>Project 3: Image Warping and Mosaicing</b></h1>
+    </div>
+
+    <!-- Part 1 -->
+    <div class="w3-container" id="Part2" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1: Shoot the Pictures</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-container">
+            <p><b></b>
+                These are the pictures I took of Brown's by the College of Natural Resources. I made 
+                sure to adjust only the angle at which the camera was facing and kept the position of 
+                my camera the same as I shot, to ensure that I maintained the same center of projection.
+            </b></p>   
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/cnr1.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-half">
+                <img src="./media/cnr2.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Part 2 -->
+    <div class="w3-container" id="Part2" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 2: Recover Homographies</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-row-padding">
+            <div class="w3-container">
+                <p><b></b>
+                    TO DOOOOOO
+                    To morph together two images of the same dimensions, I computed the average shape from the average 
+                    Delaunay triangulation from part 1 using a warp_frac to determine what ratio of image1 would be 
+                    incorporated with image2. Then, I had to define an affine transformation that warped both 
+                    faces into this average mold. I iterated over every triangle in my triangulation and founds its affine 
+                    matrix by doing matrix multiplication. I populated the triangle vertices of my original image into a 
+                    matrix that I multiply to an affine matrix with placeholder variable values, and set this equal to a 
+                    matrix of triangle vertices of my average image. I also padded my vertex points with 1s to ensure the 
+                    multiplication dimensions made sense. Once I found my affine matrix, I took the inverse such that I 
+                    could perform inverse warping so that when I multiply this inverse matrix with points from the average 
+                    image, it will essentially map me back to the coordinates of where that point would lie on my original 
+                    image. Using these inverse wrap affine matrices, I was able to warp each image into the average triangulation.
+                </b></p>
+                <p><b></b>
+                    Lastly, I needed to average the colors together. I separated my image into its rgb channels so that I 
+                    could work with them individually. I then populated colors at coordinates in my original image using inverse 
+                    wrapping by iterating over the triangles. I used skimage.draw.polygon to retrieve all the pixels within a 
+                    triangle, and used 2D binary interpolation to interpolate any in-between colors. I also cross-dissolved using 
+                    a dissolve_frac to determine how much of image1's colors would be incorpoated with image2's colors.
+                </b></p> 
+            </div>
+            <div class="w3-container" id="contact" style="margin-top:5px">
+                <div class="w3-third">
+                    <img src="./media/daniel.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Daniel</div>
+                </div>
+                <div class="w3-third">
+                    <img src="./media/morphed_kelly_daniel.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Morphed</div>
+                </div>
+                <div class="w3-third">
+                    <img src="./media/kelly.jpg" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Kelly</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Part 3 -->
+    <div class="w3-container" id="Part3" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 3: Warp the Images</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-row-padding">
+            <div class="w3-container">
+                <p><b></b>
+                    I wrote a function morph() which takes in both images and their points, the triangulation, 
+                    as well as a warp_frac and dissolve_frac to determine the ratios of shaping and coloring from 
+                    images 1 and 2. A warp_frac of 1 would mean the shape is completely determined by image 1 and 
+                    0 would mean the shape is completely determined by image 2. A dissolve_frac of 1 would mean 
+                    the color is completely determined by image 1 and 0 would mean the color is completely determined 
+                    by image 2. To create a morph sequence, I created images with the same warp_frac and dissolve_frac 
+                    over a range of [0, 1] to generate 44 frames that morph from Daniel to Kelly.
+                </b></p>   
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/cnr1.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div class="w3-half">
+                    <img src="./media/warped_cnr1.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/cnr2.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div class="w3-half">
+                    <img src="./media/warped_cnr2.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Part 4 -->
+  <div class="w3-container" id="Part4" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 4: Image Rectification</b></h1>
+    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+    <div class="w3-container"style="margin-top:25px" >
+        <p><b></b>
+            I used the Danes population and found the average face of the entire population. 
+            This was done by using my previously defined morph function and using a warp_frac of 0 
+            and a dissolve_frac of 1 to use the average Danes shape but the colors of each individual. 
+        </b></p>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/score.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-half">
+                <img src="./media/warped_score.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+        <div class="w3-container" id="contact" style="margin-top:5px">
+            <div class="w3-third">
+                <img src="./media/danes_mean_triangulation_only.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Triangulation</div>
+            </div>
+            <div class="w3-third">
+                <img src="./media/danes_mean_triangulation.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Triangulation Over Mean Face</div>
+            </div>
+            <div class="w3-third">
+                <img src="./media/danes_mean_face.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Danes Mean Face</div>
+            </div>
+        </div>
+    </div>
+    <div class="w3-container" id="contact">
+        <p><b></b>
+            Here's a couple of individual examples of people's faces being morphed into the Danes average shape.
+        </b></p>
+        <div class="w3-quarter">
+            <img src="./media/danes_0.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">01-1m Original</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/danes_morphed0.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">01-1m Warped</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/danes_1.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">01-5m Original</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/danes_morphed1.jpg" style="width:100%" onclick="onClick(this)">  
+            <div class="caption">01-5m Warped</div>
+        </div>    
+    </div>
+    <div class="w3-container" id="contact">
+        <p><b></b>
+            Then, this is what it looks like when I morph my face onto the Dane's average shape, 
+            and Dane's face onto my own face's shape. The output is a little jankier due to the 
+            less consistent nature of my own picture with Dane's as well as a bigger aspect ratio, 
+            hence why Dane's face is being slightly stretched while mine is shrinked.
+        </b></p>
+        <div class="w3-quarter">
+            <img src="./media/kelly_horizontal_cropped.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">Kelly</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/danes_shape_kelly_face.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">My Face Morphed to Danes Shape</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/danes_mean_face.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption">Danes</div>
+        </div>
+        <div class="w3-quarter">
+            <img src="./media/danes_face_kelly_shape.jpg" style="width:100%" onclick="onClick(this)">  
+            <div class="caption">Danes Face Morphed to My Shape</div>
+        </div>    
+    </div>
+  </div>
+
+    <!-- Part 5 -->
+    <div class="w3-container" id="Part5" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 5: Blend the images into a mosaic</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-container"style="margin-top:25px" >
+            <p><b></b>
+                To produce caricatures, I extrapolated from the population mean by modifying my own defined 
+                alpha value. This value is multiplied by the shape differences between the average face with 
+                my face, and then added to my own face geometry. Hence, the greater the magnitude of alpha and  
+                as it strays further away from 0 (which would be my original face), the greater these 
+                differences are and the more exaggerated the feature became.
+            </b></p>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/cnr1.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">CNR Left</div>
+            </div>
+            <div class="w3-half">
+                <img src="./media/cnr2.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">CNR Right</div>
+            </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/warped_cnr1_same_size.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">CNR Left Warped and Shifted</div>
+            </div>
+            <div class="w3-half">
+                <img src="./media/shifted_cnr2_same_size.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">CNR Right Shifted</div>
+            </div>
+        </div>
+        <div class="w3-container" id="contact" style="margin-top:5px">
+            <div class="w3-third">
+                <img src="./media/cnr_mask1.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">CNR Left Bitmask</div>
+            </div>
+            <div class="w3-third">
+                <img src="./media/overlap_mask.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Overlap Bitmask</div>
+            </div>
+            <div class="w3-third">
+                <img src="./media/cnr_mask2.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">CNR Right Bitmask</div>
+            </div>
+        </div>
+
+        <div class="w3-container" id="contact" style="margin-top:5px">
+            <img src="./media/mosaic.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="caption"></div>
+        </div>
+    </div>
+    
+  <!-- Bells & Whistles -->
+  <div class="w3-container" id="B&W" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Bells & Whistles</b></h1>
+    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+    <div class="w3-container"style="margin-top:25px" >
+        <p><b></b>
+            My friends and I created a face-morphing music video together (featuring Jaewon Lee, 
+            Rohan Gulati, Victor Zhou, Natalie Wei, and Jennifer Yin). We made sure all our images were 
+            500 x 500 pixels and performed the same face morphing. However, we only labeled corresponding 
+            points just around the face and not the corners, hence leading to a black background.
+            <br>
+            <a href="https://www.youtube.com/shorts/YnXyHEYWaT4" target="_blank">Music Video</a>
+        </b></p>
+    </div>
+    <iframe width="315" height="560"
+    src="https://www.youtube.com/embed/YnXyHEYWaT4"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+<!-- End page content -->
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Website Template: <a href="https://www.w3schools.com/w3css/tryw3css_templates_interior_design.htm#services" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>
