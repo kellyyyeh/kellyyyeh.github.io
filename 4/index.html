@@ -129,6 +129,27 @@ body {font-size:16px;}
                     \end{bmatrix} $$
                 </div>
                 <p><b></b>
+                    $$ H = \begin{bmatrix}
+                    px & py & 1 & 0 & 0 & 0 & -px \cdot qx & -py \cdot qx \\
+                    0 & 0 & 0 & px & py & 1 & -px \cdot qy & -py \cdot qy
+                    \end{bmatrix} 
+                    \cdot 
+                    \begin{bmatrix}
+                    a \\
+                    b \\
+                    c \\
+                    d \\
+                    e \\
+                    f \\
+                    g \\
+                    h
+                    \end{bmatrix} 
+                    = 
+                    \begin{bmatrix}
+                    qx \\
+                    qy
+                    \end{bmatrix} $$
+
                     I created two matrices: A and B. A consists of 
                     \[
                     \begin{bmatrix}
