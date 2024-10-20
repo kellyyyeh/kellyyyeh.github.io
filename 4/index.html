@@ -246,11 +246,9 @@ body {font-size:16px;}
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-container"style="margin-top:25px" >
             <p><b></b>
-                To produce caricatures, I extrapolated from the population mean by modifying my own defined 
-                alpha value. This value is multiplied by the shape differences between the average face with 
-                my face, and then added to my own face geometry. Hence, the greater the magnitude of alpha and  
-                as it strays further away from 0 (which would be my original face), the greater these 
-                differences are and the more exaggerated the feature became.
+                Finally, with my computeH and wrapImage function, I am equipped to warp my images together 
+                to produce a combined image with information from all input images. I decided to leave one 
+                of my images unwarped and warp the other image into its projection. 
             </b></p>
         </div>
         <div class="w3-container" id="contact">
@@ -273,6 +271,16 @@ body {font-size:16px;}
                 <div class="caption">CNR Right Shifted</div>
             </div>
         </div>
+        <div class="w3-container"style="margin-top:25px" >
+            <p><b></b>
+                Then, to blend the images together, I need to utilize bitmasks. I created bitmasks for my 
+                first and second images, as shown below, and also "ANDing" them together to retrieve the 
+                overlapping bitmask. For all pixels that fall into this overlapped region, I employed a 
+                weighted average between the first and second image pixels and put these in my final mosaic. 
+                For all other pixels outside of the overlap mask, I extract them from their respective images, 
+                and the final product is a combined panoramic mosaic of both input images!
+            </b></p>
+        </div>
         <div class="w3-container" id="contact" style="margin-top:5px">
             <div class="w3-third" style="margin-right: 5px;">
                 <img src="./media/cnr_mask1.jpg" style="width:90" onclick="onClick(this)">
@@ -287,7 +295,6 @@ body {font-size:16px;}
                 <div class="caption">CNR Right Bitmask</div>
             </div>
         </div>
-
         <div class="w3-container" id="contact" style="margin-top:5px">
             <img src="./media/mosaic.jpg" style="width:100%" onclick="onClick(this)">
             <div class="caption"></div>
