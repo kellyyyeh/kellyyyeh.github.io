@@ -158,25 +158,38 @@ body {font-size:16px;}
                     \end{bmatrix}
                     \]
             
+                    \[
+                    \begin{bmatrix}
+                    px & py & 1 & 0 & 0 & 0 & -px \cdot qx & -py \cdot qx \\
+                    0 & 0 & 0 & px & py & 1 & -px \cdot qy & -py \cdot qy
+                    \end{bmatrix}
+                    \]
+                    by the vector:
+                    \[
+                    \begin{bmatrix}
+                    a \\
+                    b \\
+                    c \\
+                    d \\
+                    e \\
+                    f \\
+                    g \\
+                    h
+                    \end{bmatrix}
+                    \]
+                    to get the result:
+                    \[
+                    \begin{bmatrix}
+                    qx \\
+                    qy
+                    \end{bmatrix}
+                    \]
+            
                     For every point in the left image (px, py) and its corresponding point (qx, qy) in the right image, 
                     I extended matrices A and B by the above values, creating an overdetermined system. To solve for this 
                     system, I leveraged the least squares formula to solve for my 8 unknowns:
                     \( x = (A^T A)^{-1} A^T B \)
                 </b></p> 
-            </div>
-            <div class="w3-container" id="contact" style="margin-top:5px">
-                <div class="w3-third">
-                    <img src="./media/daniel.jpg" style="width:100%" onclick="onClick(this)">
-                    <div class="caption">Daniel</div>
-                </div>
-                <div class="w3-third">
-                    <img src="./media/morphed_kelly_daniel.jpg" style="width:100%" onclick="onClick(this)">
-                    <div class="caption">Morphed</div>
-                </div>
-                <div class="w3-third">
-                    <img src="./media/kelly.jpg" style="width:100%" onclick="onClick(this)">
-                    <div class="caption">Kelly</div>
-                </div>
             </div>
         </div>
     </div>
