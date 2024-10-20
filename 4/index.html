@@ -131,7 +131,8 @@ body {font-size:16px;}
                 </div>
 
                 <p><b></b>
-                    Which I then simplified to the general form:
+                    Which I then simplified to the general form by reorganizing the above equation and isolating 
+                    the a through h variables into a single vector into the form \( A = xB \):
                     $$ \begin{bmatrix}
                     px & py & 1 & 0 & 0 & 0 & -px \cdot qx & -py \cdot qx \\
                     0 & 0 & 0 & px & py & 1 & -px \cdot qy & -py \cdot qy
@@ -155,9 +156,8 @@ body {font-size:16px;}
                 </b></p>
 
                 <p><b></b>
-                    After reorganizing the above equation and isolating the a through h variables 
-                    into a single vector into the form \( A = xB \), I can perform a basic matrix 
-                    multiplication to solve for my 8 unknowns. To do this, I created the left and right 
+                    Now, I can perform a basic matrix multiplication to solve for my 8 unknowns. 
+                    To do this, I created the left and right 
                     matrices A and B and extended it for every point in the left image (px, py) and its 
                     corresponding point (qx, qy) in the right image. This creates an overdetermined system 
                     which I solved for by leveraging the least squares formula
@@ -285,7 +285,7 @@ body {font-size:16px;}
             </b></p>
         </div>
         
-        <div class="w3-container" id="contact"  style="display: flex; align-items: flex-end;">
+        <div class="w3-container" id="contact" style="display: flex; align-items: flex-end;">
             <div class="w3-third" style="margin-right: 10px;">
                 <img src="./media/cnr_mask1.jpg" onclick="onClick(this)">
                 <div class="caption">CNR Left Bitmask</div>
