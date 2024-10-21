@@ -350,10 +350,11 @@ body {font-size:16px;}
                 For all other pixels outside of the overlap mask, I extract them from their respective images. 
             </b></p>
             <p><b></b>
-                To blend together 3 images, I combined images together one by one to the refernce middle image. 
+                To blend together 3 images, I combined images together one by one to the reference middle image. 
                 I first combined the left and middle image bitmasks together, blending using a weighted sum over 
                 the overlap mask. Then, I took this left + middle blended bitmask and combined it with the right 
-                bitmask, and again blending its overlap with a weighted sum.
+                bitmask, and again blending its overlap with a weighted sum. For all other pixels outside of the 
+                overlap mask, I extract them from their respective images.
             </b></p>
         </div>     
         <div class="w3-container" id="contact">
