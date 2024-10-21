@@ -214,7 +214,7 @@ body {font-size:16px;}
                     individually.
                 </b></p>
                 <p><b></b>
-                    I have 3 CNR images (left, middle, and right) that I defined correspondence points 
+                    I have 3 CNR images (left, middle, and right) that I defined correspondence points for 
                     between the left and middle images, as well as the middle and right images. Using my 
                     middle image as the reference, I computed homographies for the left and right images 
                     onto my middle image and made sure all alignment and shifting was correct. 
@@ -324,7 +324,7 @@ body {font-size:16px;}
             <p><b></b>
                 Finally, with my computeH and wrapImage function, I am equipped to warp my images together 
                 to produce a combined image with information from all input images. For my 3 CNR images, 
-                I warped my left and right images onto the middle one.
+                I will warp my left and right images onto the middle one.
             </b></p>
         </div>
         <div class="w3-container" id="contact">
@@ -343,8 +343,8 @@ body {font-size:16px;}
         </div>
         <div class="w3-container"style="margin-top:25px" >
             <p><b></b>
-                Then, to blend the images together, I need to utilize bitmasks. I created bitmasks for my 
-                first and second images, as shown below, and also "ANDing" them together to retrieve the 
+                To blend the images together, I need to utilize bitmasks. I created bitmasks for my 
+                first and second images, as shown below, and "AND" them together to retrieve the 
                 overlapping bitmask. For all pixels that fall into this overlapped region, I employed a 
                 weighted average between the first and second image pixels and put these in my final mosaic. 
                 For all other pixels outside of the overlap mask, I extract them from their respective images. 
@@ -353,8 +353,8 @@ body {font-size:16px;}
                 To blend together 3 images, I combined images together one by one to the reference middle image. 
                 I first combined the left and middle image bitmasks together, blending using a weighted sum over 
                 the overlap mask. Then, I took this left + middle blended bitmask and combined it with the right 
-                bitmask, and again blending its overlap with a weighted sum. For all other pixels outside of the 
-                overlap mask, I extract them from their respective images.
+                bitmask, and again blending its overlap with a weighted sum. And as stated above, I extract all 
+                pixels outside of the overlap mask from their respective images.
             </b></p>
         </div>     
         <div class="w3-container" id="contact">
@@ -409,7 +409,8 @@ body {font-size:16px;}
         <div class="w3-container"style="margin-top:25px" >
             <p><b></b>
                 I repeated the same warping and bitmasking procedure as above, but this time leaving 
-                one of my images unwarped and warping the other image into its projection.
+                one of my images unwarped and warping the other image into its projection, producing two 
+                more mosaic images.
             </b></p>
         </div>
         <div class="w3-container" id="contact">
