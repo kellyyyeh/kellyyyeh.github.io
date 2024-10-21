@@ -83,18 +83,38 @@ body {font-size:16px;}
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-container">
             <p><b></b>
-                These are the pictures I took of Brown's by the College of Natural Resources. I made 
-                sure to adjust only the angle at which the camera was facing and kept the position of 
-                my camera the same as I shot, to ensure that I maintained the same center of projection. 
-                I tried to aim for an approximate 40-70% overlap and ensure minimal moving objects.
+                These are the pictures I took of Brown's by the College of Natural Resources, my room, 
+                and the intersection outside of Identity. I made sure to adjust only the angle at which 
+                the camera was facing and kept the position of my camera the same as I shot, to ensure 
+                that I maintained the same center of projection. I tried to aim for an approximate 
+                40-70% overlap and ensure minimal moving objects.
             </b></p>   
         </div>
         <div class="w3-container" id="contact">
-            <div class="w3-half">
+            <div class="w3-third">
                 <img src="./media/cnr1.jpg" style="width:100%" onclick="onClick(this)">
             </div>
-            <div class="w3-half">
+            <div class="w3-third">
+                <img src="./media/cnr1_5.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-third">
                 <img src="./media/cnr2.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/room1.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-half">
+                <img src="./media/room2.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/identity1.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-half">
+                <img src="./media/identity2.jpg" style="width:100%" onclick="onClick(this)">
             </div>
         </div>
     </div>
@@ -193,21 +213,72 @@ body {font-size:16px;}
                     and then copied these pixels over to my new image by working with each rgb channel 
                     individually.
                 </b></p>
+                <p><b></b>
+                    I have 3 CNR images (left, middle, and right) that I defined correspondence points 
+                    between the left and middle images, as well as the middle and right images. Using my 
+                    middle image as the reference, I computed homographies for the left and right images 
+                    onto my middle image and made sure all alignment and shifting was correct. 
+                </b></p>
             </div>
             <div class="w3-container" id="contact">
-                <div class="w3-half">
+                <div class="w3-third">
                     <img src="./media/cnr1.jpg" style="width:100%" onclick="onClick(this)">
                 </div>
-                <div class="w3-half">
+                <div class="w3-third">
+                    <img src="./media/cnr1_5.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div class="w3-third">
                     <img src="./media/cnr2.jpg" style="width:100%" onclick="onClick(this)">
                 </div>
             </div>
             <div class="w3-container" id="contact">
-                <div class="w3-half">
+                <div class="w3-third">
                     <img src="./media/warped_cnr1_same_size.jpg" style="width:100%" onclick="onClick(this)">
                 </div>
+                <div class="w3-third">
+                    <img src="./media/shifted_cnr1_5_same_size.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div class="w3-third">
+                    <img src="./media/warped_cnr2_same_size.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+            <div class="w3-container">
+                <p><b></b>
+                    For the other two sets of images, I wanted to try warping one onto the other. For my room, 
+                    I warped my left image onto my right image, and for Identity, I warped my right image onto 
+                    my left image as so:
+                </b></p>
+            </div>
+            <div class="w3-container" id="contact">
                 <div class="w3-half">
-                    <img src="./media/warped_cnr2.jpg" style="width:100%" onclick="onClick(this)">
+                    <img src="./media/room1.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div class="w3-half">
+                    <img src="./media/room2.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/warped_room1_same_size.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div class="w3-half">
+                    <img src="./media/shifted_room2_same_size.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/identity1.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div class="w3-half">
+                    <img src="./media/identity2.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/shifted_identity1_same_size.jpg" style="width:100%" onclick="onClick(this)">
+                </div>
+                <div class="w3-half">
+                    <img src="./media/warped_identity2_same_size.jpg" style="width:100%" onclick="onClick(this)">
                 </div>
             </div>
         </div>
@@ -252,28 +323,22 @@ body {font-size:16px;}
         <div class="w3-container"style="margin-top:25px" >
             <p><b></b>
                 Finally, with my computeH and wrapImage function, I am equipped to warp my images together 
-                to produce a combined image with information from all input images. I decided to leave one 
-                of my images unwarped and warp the other image into its projection. 
+                to produce a combined image with information from all input images. For my 3 CNR images, 
+                I warped my left and right images onto the middle one.
             </b></p>
         </div>
         <div class="w3-container" id="contact">
-            <div class="w3-half">
-                <img src="./media/cnr1.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="w3-third">
+                <img src="./media/warped_cnr1_same_size.jpg" style="width:100%" onclick="onClick(this)">
                 <div class="caption">CNR Left</div>
             </div>
-            <div class="w3-half">
-                <img src="./media/cnr2.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="w3-third">
+                <img src="./media/shifted_cnr1_5_same_size.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">CNR Middle</div>
+            </div>
+            <div class="w3-third">
+                <img src="./media/warped_cnr2_same_size.jpg" style="width:100%" onclick="onClick(this)">
                 <div class="caption">CNR Right</div>
-            </div>
-        </div>
-        <div class="w3-container" id="contact">
-            <div class="w3-half">
-                <img src="./media/warped_cnr1_same_size.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">CNR Left Warped and Shifted</div>
-            </div>
-            <div class="w3-half">
-                <img src="./media/shifted_cnr2_same_size.jpg" style="width:100%" onclick="onClick(this)">
-                <div class="caption">CNR Right Shifted</div>
             </div>
         </div>
         <div class="w3-container"style="margin-top:25px" >
@@ -284,35 +349,91 @@ body {font-size:16px;}
                 weighted average between the first and second image pixels and put these in my final mosaic. 
                 For all other pixels outside of the overlap mask, I extract them from their respective images. 
             </b></p>
-        </div>
-        
+            <p><b></b>
+                To blend together 3 images, I combined images together one by one to the refernce middle image. 
+                I first combined the left and middle image bitmasks together, blending using a weighted sum over 
+                the overlap mask. Then, I took this left + middle blended bitmask and combined it with the right 
+                bitmask, and again blending its overlap with a weighted sum.
+            </b></p>
+        </div>     
         <div class="w3-container" id="contact">
-            <div class="w3-third">
+            <div class="w3-quarter">
                 <img src="./media/cnr_mask1.jpg" style="width:100%" onclick="onClick(this)">
                 <div class="caption">CNR Left Bitmask</div>
             </div>
-            <div class="w3-third">
-                <img src="./media/overlap_mask.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="w3-quarter">
+                <img src="./media/cnr_left_combined_mask.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Combined Bitmask</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/cnr_left_overlap_mask.jpg" style="width:100%" onclick="onClick(this)">
                 <div class="caption">Overlap Bitmask</div>
             </div>
-            <div class="w3-third" >
-                <img src="./media/cnr_mask2.jpg" style="width:100%" onclick="onClick(this)">
+            <div class="w3-quarter" >
+                <img src="./media/cnr_mask1_1_5.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">CNR Middle Bitmask</div>
+            </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-quarter">
+                <img src="./media/cnr_mask1_1_5.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">CNR Left + Middle Bitmask</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/cnr_total_combined_mask.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Combined Bitmask</div>
+            </div>
+            <div class="w3-quarter">
+                <img src="./media/cnr_total_overlap_mask.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Overlap Bitmask</div>
+            </div>
+            <div class="w3-quarter" >
+                <img src="./media/cnr_mask1_1_5.jpg" style="width:100%" onclick="onClick(this)">
                 <div class="caption">CNR Right Bitmask</div>
             </div>
         </div>
         <div class="w3-container"style="margin-top:25px" >
             <p><b></b>
-                The final product is a combined panoramic mosaic of both input images!
+                The final product is a combined panoramic mosaic of all 3 input images!
             </b></p>
         </div>
         <div class="w3-container" id="contact">
             <div class="w3-half">
-                <img src="./media/combined_mask.jpg" style="width:100%" onclick="onClick(this)">
+                <img src="./media/cnr_total_combined_mask.jpg" style="width:100%" onclick="onClick(this)">
                 </div>
             <div class="w3-half">
-                <img src="./media/mosaic.jpg" style="width:100%" onclick="onClick(this)">
+                <img src="./media/cnr_pano.jpg" style="width:100%" onclick="onClick(this)">
             </div>
         </div>
+        <div class="w3-container"style="margin-top:25px" >
+            <p><b></b>
+                I repeated the same warping and bitmasking procedure as above, but this time leaving 
+                one of my images unwarped and warping the other image into its projection.
+            </b></p>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-third">
+                <img src="./media/warped_room1_same_size.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-third">
+                <img src="./media/room_pano.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-third">
+                <img src="./media/shifted_room2_same_size.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-third">
+                <img src="./media/shifted_identity1_same_size.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-third">
+                <img src="./media/identity_pano.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-third">
+                <img src="./media/warped_identity2_same_size.jpg" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+
     </div>
     
   <!-- Reflection -->
