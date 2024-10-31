@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>W3.CSS Template</title>
+<title>Project 4: (Auto)stitching and photo mosaics</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -50,11 +50,18 @@ body {font-size:16px;}
   </div>
   <div class="w3-bar-block">
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="#Part1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Shoot the Pictures</a> 
-    <a href="#Part2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Recover Homographies</a> 
-    <a href="#Part3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Warp the Images</a> 
-    <a href="#Part4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Image Rectification</a> 
-    <a href="#Part5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Blend the images into a mosaic</a>
+    <a href="#Part4A" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 4A</a>
+    <a href="#Part1.1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">1.1: Shoot the Pictures</a> 
+    <a href="#Part1.2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">1.2: Recover Homographies</a> 
+    <a href="#Part1.3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">1.3: Warp the Images</a> 
+    <a href="#Part1.4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">1.4: Image Rectification</a> 
+    <a href="#Part1.5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">1.5: Blend the images into a mosaic</a>
+    <a href="#Part4B" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Part 4B</a>
+    <a href="#Part2.1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">2.1: Harris Points</a> 
+    <a href="#Part2.2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">2.2: ANMS</a> 
+    <a href="#Part2.3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">2.3: Feature Descriptor Extraction</a> 
+    <a href="#Part2.4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">2.4: Featuring Matching</a> 
+    <a href="#Part2.5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">2.5: RANSAC</a>
     <a href="#Reflection" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Reflection</a>
   </div>
 </nav>
@@ -72,14 +79,14 @@ body {font-size:16px;}
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
   
     <!-- Header -->
-    <div class="w3-container" style="margin-top:80px" id="Part1">
+    <div class="w3-container" style="margin-top:80px" id="Part4A">
         <h1 class="w3-jumbo"><b>Project 4: Image Warping and Mosaicing</b></h1>
         <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 4A</b></h1>
     </div>
 
     <!-- Part 1 -->
-    <div class="w3-container" id="Part1" style="margin-top:45px">
-        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1: Shoot the Pictures</b></h1>
+    <div class="w3-container" id="Part1.1" style="margin-top:45px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1.1: Shoot the Pictures</b></h1>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-container">
             <p><b></b>
@@ -120,8 +127,8 @@ body {font-size:16px;}
     </div>
     
     <!-- Part 2 -->
-    <div class="w3-container" id="Part2" style="margin-top:75px">
-        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 2: Recover Homographies</b></h1>
+    <div class="w3-container" id="Part1.2" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1.2: Recover Homographies</b></h1>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-row-padding">
             <div class="w3-container">
@@ -189,8 +196,8 @@ body {font-size:16px;}
     </div>
 
     <!-- Part 3 -->
-    <div class="w3-container" id="Part3" style="margin-top:75px">
-        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 3: Warp the Images</b></h1>
+    <div class="w3-container" id="Part1.3" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1.3: Warp the Images</b></h1>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-row-padding">
             <div class="w3-container">
@@ -285,8 +292,8 @@ body {font-size:16px;}
     </div>
 
   <!-- Part 4 -->
-  <div class="w3-container" id="Part4" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 4: Image Rectification</b></h1>
+  <div class="w3-container" id="Part1.4" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1.4: Image Rectification</b></h1>
     <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
     <div class="w3-container"style="margin-top:25px" >
         <p><b></b>
@@ -317,8 +324,8 @@ body {font-size:16px;}
   </div>
 
     <!-- Part 5 -->
-    <div class="w3-container" id="Part5" style="margin-top:75px">
-        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 5: Blend the images into a mosaic</b></h1>
+    <div class="w3-container" id="Part1.5" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 1.5: Blend the images into a mosaic</b></h1>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-container"style="margin-top:25px" >
             <p><b></b>
@@ -437,7 +444,236 @@ body {font-size:16px;}
         </div>
 
     </div>
+
+  <div class="w3-container" style="margin-top:80px" id="Part4B">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 4B</b></h1>
+  </div>
+
+  <!-- Part 2.1 -->
+  <div class="w3-container" id="Part2.1" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 2.1: Harris Point Detector</b></h1>
+    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+    <div class="w3-container"style="margin-top:25px" >
+        <div class="w3-third">
+            <img src="./media/cnr1_harris_points.jpg" style="width:100%" onclick="onClick(this)">
+        </div>
+        <div class="w3-rest">
+            <div class="w3-container">
+                <p><b></b>
+                    We first start by identifying the corners on our image, defined my by the Harris 
+                    interest point detector. This corner detection is computed via gradients and then 
+                    comparing its eigenvalues, and we pinpoint large and similar eigenvalues as those 
+                    areas where a corner point is located. In other words, when you shift this area 
+                    around in any way whatsoever, there will be some sort of change in the image.
+                </b></p>
+            </div>    
+        </div>      
+    </div>
+  </div>
+
+  <!-- Part 2.2 -->
+  <div class="w3-container" id="Part2.2" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 2.2: Adaptive Non-Maximimal Suppression</b></h1>
+    <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+    <div class="w3-container"style="margin-top:25px" >
+        <div class="w3-third">
+            <img src="./media/cnr1_anms.jpg" style="width:100%" onclick="onClick(this)">
+        </div>
+        <div class="w3-rest">
+            <div class="w3-container">
+                <p><b></b>
+                    However, there are too many Harris corners to look at and we need to reduce these down 
+                    to a more manageable sample. Rather than just selecting the points with the highest corner 
+                    strength, we want to ensure our points are relatively evenly spaced out. To do this, we 
+                    need to use adaptive non-maximal suppression (ANMS), which picks the top-K interest points 
+                    such that its distance to the nearest interest point is significant larger. Essentially, within 
+                    each neighborhood of radius r, we only maintain the maximum interest point within that region, 
+                    and do this across our entire image such that our result will contain evenly distributed points 
+                    throughout our image.
+                </b></p>
+            </div>    
+        </div>      
+    </div>
+  </div>
+
+  <!-- Part 2.3 -->
+  <div class="w3-container" id="Part2.3" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 2.3: Feature Description Extraction</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-container">
+            <p><b></b>
+                Once we've derived a solid set of ANMS points, we perform feature descriptor extraction. To do so, 
+                we compute a 40x40 axis-aligned patch centered around every interest point. Then, we blur it to ensure 
+                anti-aliasing, downscale it to 8x8, and then normalize using bias/gain. These feature descriptors will 
+                then later be used for comparison such that we can detect which points correspond to each other.
+            </b></p>   
+            <p><b></b>
+                Below is an example of a couple of a feature descriptor we've extracted.
+            </b></p>  
+        </div>
+        <div class="w3-container" id="contact">
+            <img src="./media/fd.png" style="width:300px" onclick="onClick(this)">
+        </div>
+    </div>
+
+    <!-- Part 2.4 -->
+    <div class="w3-container" id="Part2.4" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 2.4: Feature Matching</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-container">
+            <p><b></b>
+                Equipped with our feature descriptors, now we need to decide which feature descriptors match each other.
+                For each patch in the first image, we compare it to a patch in the second image by finding its sum-squared 
+                differences, then order them in ascending order of these differences. We decide which features to extract 
+                by calculating the ratio of the (first nearest neighbor error / second nearest neighbor error) and verifying 
+                if it's below a pre-determiend threshold, hence extracting only the feature descriptors that are similar enough. 
+            </b></p>   
+            <p><b></b>
+                Below are examples of feature descriptor matches we've computed between two separate images.
+            </b></p>  
+        </div>
+        <div class="w3-container" id="contact" style="display: flex; align-items: flex-end;">
+            <div class="w3-quarter" style="margin-right: 10px;">
+                <img src="./media/fd1-1.png" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-quarter" style="margin-right: 10px;">
+                <img src="./media/fd1-2.png" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-quarter" style="margin-right: 10px;">
+                <img src="./media/fd2-1.png" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-quarter" style="margin-right: 10px;">
+                <img src="./media/fd2-2.png" style="width:100%" onclick="onClick(this)">
+            </div>    
+        </div>
+        <div class="w3-container" id="contact" style="display: flex; justify-content: center; align-items: flex-end;">
+            <div class="w3-quarter" style="margin-right: 10px;">
+                <img src="./media/fd3-1.png" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-quarter" style="margin-right: 10px;">
+                <img src="./media/fd3-2.png" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+        <div class="w3-container">
+            <p><b></b>
+                And here's the points feature matching managed to pinpoint:
+            </b></p>  
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/fd_cnr1.png" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-half">
+                <img src="./media/fd_cnr1_5.png" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+    </div>
     
+    <!-- Part 2.5 -->
+    <div class="w3-container" id="Part2.5" style="margin-top:75px">
+        <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Part 2.5: RANSAC</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-container">
+            <p><b>
+                RANSAC, or random sample consensus, is a methodology utilized to estimate homographies by 
+                choosing correspondence points that best align together and discards outliers. With the points 
+                that we've sifted through feature matching, we can now use these points to compute our homography. 
+                Using a RANSAC loop, we select 4 of these feature pairs at random and compute its homography. Note, 
+                we don't have to use least squares when computing this homography because 4 feature pairs don't result 
+                in an overestimated system. Then, we calculate the Euclidean distance between these transformed points 
+                and our ground truth targets, and count and track the number of points whose distance is less than a 
+                pre-determined threshold--this is the number of inliners we have, and all other points above the threshold 
+                are our outliers which we ultimately filter out using this process. From there, we repeat this process 
+                for around 5000 steps and output the homography with the largest set of inliners.
+            </b>
+            <p><b>
+                Let's walk through an example. Here, I have two images that I have computed ANMS coordinates for and are 
+                already featured matched from previous sections.
+            </b>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/evans1_anms.png" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-half">
+                <img src="./media/evans2_anms.png" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+        <div class="w3-container">
+            <p><b>
+                I compute my inliners using the method described above, resulting in only the important points that correspond 
+                to each other. As you can see, all the extra points located near the outlet or the red box on the table are ignored, 
+                as these points don't match with any points in the other image, and hence we've filtered out these outliers.
+            </b>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/evans1_ransac.png" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-half">
+                <img src="./media/evans2_ransac.png" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+        <div class="w3-container">
+            <p><b>
+                Finally, using these RANSAC points for each image, I compute and apply a homography to blend 
+                these two images together the same way I did in part A. And, voila! We have a beautifully blended mosaic of two 
+                images without having to manually select correspondence points.
+            </b>
+        </div>
+        <div class="w3-container" id="contact">
+            <img src="./media/evans_auto.png" style="width:100%" onclick="onClick(this)">
+        </div>
+        <div class="w3-container">
+            <p><b>
+                Here's a couple of other blended pictures that have been autostitched together:
+            </b>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/cnr1_ransac.png" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-half">
+                <img src="./media/cnr1_5_ransac.png" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+        <div class="w3-container">
+            <p><b>
+                You can see a few discrepencies here. For example, I wasn't the most careful about the select of 
+                a couple of my manual points, causing the left-front tiles to not entirely match up. However, 
+                automatic stitching handled this more effectively and these tiles are better aligned.
+            </b>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/cnr_auto.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Automatic Stitching</div>
+            </div>
+            <div class="w3-half">
+                <img src="./media/cnr_pano.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Manual Stitching</div>
+            </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/room1_ransac.png" style="width:100%" onclick="onClick(this)">
+            </div>
+            <div class="w3-half">
+                <img src="./media/room2_ransac.png" style="width:100%" onclick="onClick(this)">
+            </div>
+        </div>
+        <div class="w3-container" id="contact">
+            <div class="w3-half">
+                <img src="./media/room_auto.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Automatic Stitching</div>
+            </div>
+            <div class="w3-half">
+                <img src="./media/room_pano.jpg" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Manual Stitching</div>
+            </div>
+        </div>
+    </div>
+
   <!-- Reflection -->
   <div class="w3-container" id="Reflection" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-blue-gray"><b>Reflection</b></h1>
@@ -448,10 +684,16 @@ body {font-size:16px;}
             alignment works. I think overall my results turned out relatively well because I took my 
             pictures keeping the camera as steady as possible such that my center of projection was the 
             same. Additionally, the image rectification proved my homography effective since my images 
-            were effectively made rectangular, and my final mosaics effectively blended my images together.
+            were effectively made rectangular, and my final mosaics effectively blended my images together. 
+            I find automatic feature alignment to be so fascinating because of the careful computation 
+            behind it, and I think it reveals how cool and powerful the Gaussian is because it played a 
+            key role in feature matching. I also think RANSAC is a super cool method that feels brute force, 
+            but it is still so effective at being able to knock out outliers and consequently figure out 
+            what the homoegraphic transformation is supposed to look like.
         </b></p>
     </div>
   </div>
+
 
   <!-- Bells & Whistles -->
   <!-- <div class="w3-container" id="B&W" style="margin-top:75px">
