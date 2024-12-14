@@ -149,7 +149,7 @@ body {font-size:16px;}
                 minimize the values of this equation: v(x,y)-t(x_n,y_n) = s(x,y)-s(x_n,y_n).
                 <br>
                 <br>
-                Then, solving this least squares problems where A is a matrix of (h * w, h * w) and b is a vector of length h * w. We do this for each of 
+                Then, we solve this least squares problems where A is a matrix of (h * w, h * w) and b is a vector of length h * w. We do this for each of 
                 the rgb channels individually and then combining them together, we have a seamless poisson blended result.
             </b></p>   
         </div>
@@ -174,8 +174,11 @@ body {font-size:16px;}
         <div class="w3-container" style="margin-top:45px">
             <p><b></b>
                 Each blended image also requires an offset variable bg_ul that we use to decide where in 
-                the background the object will be placed. The penguin I plaed at (1500, 800), the fish at (400, 400), 
-                and the plane at (500, 700). Here are two more examples of seamless poisson blending:
+                the background the object will be placed. The penguin I placed at (1500, 800), the fish at (400, 400), 
+                and the plane at (500, 700). I noticed that my blends performed better when the background 
+                color matched the object itself. I also used more precise masks with a smaller border around the outside, and 
+                this resulted in darker outputs because there was less of the background in my masked image. But overall, the blends worked very well. 
+                Here are two more examples of poisson blending:
             </b></p>   
         </div>
         <div class="w3-container" id="contact">
@@ -403,8 +406,14 @@ body {font-size:16px;}
             With these hyperparameters, I achieved a PSNR of 25.96.
         </p>
         <div class="w3-container" id="contact">
-            <img src="./media/psnr_L10.png" style="width:100%" onclick="onClick(this)">
-            <div class="caption">Training PSNR Curve L = 10</div>
+            <div class="w3-half">
+                <img src="./media/psnr_L10.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Training PSNR Curve L = 10</div>
+                </div>
+            <div class="w3-half">
+                <img src="./media/loss_L10.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Training Loss Curve L = 10</div>
+            </div>
         </div>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <p><b></b>
@@ -439,8 +448,14 @@ body {font-size:16px;}
             </div>
         </div>
         <div class="w3-container" id="contact">
-            <img src="./media/psnr_L5.png" style="width:100%" onclick="onClick(this)">
-            <div class="caption">Training PSNR Curve L = 5</div>
+            <div class="w3-half">
+                <img src="./media/psnr_L5.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Training PSNR Curve L = 5</div>
+            </div>
+            <div class="w3-half">
+                <img src="./media/loss_L5.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Training Loss Curve L = 5</div>
+            </div>
         </div>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <p><b></b>
@@ -484,9 +499,16 @@ body {font-size:16px;}
             </div>
         </div>
         <div class="w3-container" id="contact">
-            <img src="./media/psnr_1e-3.png" style="width:100%" onclick="onClick(this)">
-            <div class="caption">Training PSNR Curve LR = 1e-3</div>
+            <div class="w3-half">
+                <img src="./media/psnr_1e-3.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Training PSNR Curve LR = 1e-3</div>
+            </div>
+            <div class="w3-half">
+                <img src="./media/loss_ie-3.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Training Loss Curve LR = 1e-3</div>
+            </div>
         </div>
+
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <p><b></b>
             Here I run the model with these hyperparameters against two different images of my own choosing: 
@@ -517,8 +539,14 @@ body {font-size:16px;}
                 </div>
             </div>
             <div class="w3-container" id="contact">
-                <img src="./media/psnr_bunny.png" style="width:100%" onclick="onClick(this)">
-                <div class="caption">Training PSNR Curve</div>
+                <div class="w3-half">
+                    <img src="./media/psnr_bunny.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Training PSNR Curve</div>
+                    </div>
+                <div class="w3-half">
+                    <img src="./media/loss_bunny.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Training Loss Curve</div>
+                </div>
             </div>
             <div class="w3-container" id="contact" style="display: flex; align-items: flex-end;">
             <div class="w3-quarter" style="margin-right: 10px;">
@@ -545,8 +573,14 @@ body {font-size:16px;}
             </div>
         </div>
         <div class="w3-container" id="contact">
-            <img src="./media/psnr_sunflower.png" style="width:100%" onclick="onClick(this)">
-            <div class="caption">Training PSNR Curve</div>
+            <div class="w3-half">
+                <img src="./media/psnr_sunflower.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Training PSNR Curve</div>
+                    </div>
+            <div class="w3-half">
+                <img src="./media/loss_sunflower.png" style="width:100%" onclick="onClick(this)">
+                <div class="caption">Training Loss Curve</div>
+            </div>
         </div>
     </div>
   </div>
