@@ -53,11 +53,13 @@ body {font-size:16px;}
     <a href="#GradientDomain" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Precanned 1: Gradient Domain</a> 
     <a href="#Part2.1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">2.1: Toy Problem</a>
     <a href="#Part2.2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">2.2: Poisson Blending</a> 
+    <a href="#B&W1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">B&W: Mixed Gradients</a>
+    <a href="#B&W2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">B&W: Color2Gray</a>
     <a href="#Lightfield" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Precanned 2: Lightfield Camera</a> 
     <a href="#Part1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">1: Depth Refocusing</a> 
     <a href="#Part2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">2: Aperture Adjustment</a> 
     <a href="#Summary" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Summary</a> 
-    <a href="#B&W" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">B&W: Interactive Refocusing</a>
+    <a href="#B&W3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">B&W: Interactive Refocusing</a>
     <a href="#NeRF" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">B&W: NeRF Part 1</a>
   </div>
 </nav>
@@ -174,8 +176,8 @@ body {font-size:16px;}
         <div class="w3-container" style="margin-top:45px">
             <p><b></b>
                 Each blended image also requires an offset variable bg_ul that we use to decide where in 
-                the background the object will be placed. The penguin I placed at (1500, 800), the fish at (400, 400), 
-                and the plane at (500, 700). I noticed that my blends performed better when the background 
+                the background the object will be placed. The penguin I placed at (700, 400), the fish at (200, 200), 
+                and the plane at (250, 350). I noticed that my blends performed better when the background 
                 color matched the object itself. I also used more precise masks with a smaller border around the outside, and 
                 this resulted in darker outputs because there was less of the background in my masked image. But overall, the blends worked very well. 
                 Here are two more examples of poisson blending:
@@ -216,6 +218,116 @@ body {font-size:16px;}
         <div class="w3-container" id="contact">
             <img src="./media/poisson_plane.png" style="width:100%" onclick="onClick(this)">
             <div class="caption">Blended Image</div>
+        </div>
+    </div>
+
+    <!-- Bells & Whistles -->
+    <div class="w3-container" id="B&W1" style="margin-top:75px">
+        <h1 class="w3-xxlarge w3-text-blue-gray"><b>Bells & Whistles: Mixed Gradients</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-row-padding">
+            <div class="w3-container">
+                <p><b></b>
+                    For mixed gradients, we want to similarly perform poisson blending but with a modified constraint equation:
+                </b></p>   
+            </div>
+            <div class="w3-container" id="contact" style="display: flex; justify-content: center;">
+                <img src="./media/textureblend_eq.png" style="width:100%" onclick="onClick(this)">
+            </div>    
+            <div class="w3-container">
+                <p><b></b>
+                    In this case, we are mixing the gradients between the source and target images. To do this, we can take the 
+                    absolute value of the source gradients, compare them against the absolute value of the target gradients, and 
+                    take the larger of the two. In the above equation, d_ij corresponds to the larger gradient. Below are our results 
+                    using mixed gradients compared to regular poisson blending. As you can see, the results tend to more closely 
+                    match the background and hence are a little lighter.
+                </b></p>   
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/poisson_penguin.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Poisson Penguin</div>
+                </div>
+                <div class="w3-half">
+                    <img src="./media/mixed_penguin.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Mixed Gradients Penguin</div>
+                </div>
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/poisson_fish.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Poisson Fish</div>
+                </div>
+                <div class="w3-half">
+                    <img src="./media/mixed_fish.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Mixed Gradients Fish</div>
+                </div>
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/poisson_plane.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Poisson Plane</div>
+                </div>
+                <div class="w3-half">
+                    <img src="./media/mixed_plane.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Mixed Gradients Plane</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bells & Whistles -->
+    <div class="w3-container" id="B&W2" style="margin-top:75px">
+        <h1 class="w3-xxlarge w3-text-blue-gray"><b>Bells & Whistles: Color2Gray</b></h1>
+        <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
+        <div class="w3-row-padding">
+            <div class="w3-container">
+                <p><b></b>
+                    Normally when reconstructing an image, we convert it from color to grayscale using 
+                    cv2.cvtColor(image, cv2.COLOR_BGR2GRAY). However, for images such as color blindness 
+                    tests, converting these images to grayscale will cause them to lose their contrast and 
+                    information.
+                </b></p>   
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-half">
+                    <img src="./media/color.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Color Image</div>
+                </div>
+                <div class="w3-half">
+                    <img src="./media/color2gray.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Color to Gray Image</div>
+                </div>
+            </div>
+            <div class="w3-container">
+                <p><b></b>
+                    To resolve this, we can try converting the image to the HSV space:
+                </b></p>   
+            </div>
+            <div class="w3-container" id="contact" style="display: flex; justify-content: center;">
+                <img src="./media/hsv.png" style="width:100%" onclick="onClick(this)">
+            </div>    
+            <div class="w3-container">
+                <p><b></b>
+                    By using the V channel, which still preserves the information and intensities from the original image 
+                    and properly converts it to grayscale, we're able to reconstruct the image properly with 
+                    a MSE of 4.882742657242126e-13.
+                </b></p>   
+            </div>
+            <div class="w3-container" id="contact">
+                <div class="w3-third">
+                    <img src="./media/color.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Original Color Image</div>
+                </div>
+                <div class="w3-third">
+                    <img src="./media/color2gray.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Color to Gray Image</div>
+                </div>
+                <div class="w3-third">
+                    <img src="./media/reconstructed_gray.png" style="width:100%" onclick="onClick(this)">
+                    <div class="caption">Reconstructed Gray Image</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -315,7 +427,7 @@ body {font-size:16px;}
     </div>
     
     <!-- Bells & Whistles -->
-    <div class="w3-container" id="B&W" style="margin-top:75px">
+    <div class="w3-container" id="B&W3" style="margin-top:75px">
         <h1 class="w3-xxlarge w3-text-blue-gray"><b>Bells & Whistles: Interactive Refocusing</b></h1>
         <hr style="width:50px;border:5px solid rgb(96, 125, 139)" class="w3-round">
         <div class="w3-row-padding">
